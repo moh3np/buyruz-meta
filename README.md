@@ -1,68 +1,60 @@
-# Buyruz Metadata & Taxonomy Snapshots
+# اسنپ‌شات‌های ساختار داده و محصولات بایروز
 
-> Static snapshots of the Buyruz e-commerce taxonomy (brands, tags, categories, attributes, and products) optimized for LLMs, autonomous agents, and search engines.
+> این مخزن جهت مدیریت و انتشار خودکار داده‌های ساختاریافته فروشگاه بایروز (شامل برندها، تگ‌ها، دسته‌بندی‌ها، ویژگی‌ها و محصولات) برای استفاده توسط هوش مصنوعی، ربات‌ها و موتورهای جستجو طراحی شده است.
 
-Live URL: **[meta.buyruz.com](https://meta.buyruz.com)**
-
----
-
-## 🌟 Overview
-This repository manages and distributes static snapshots of the Buyruz taxonomy. It bridges the gap between Google Sheets (where taxonomy is managed by humans) and autonomous agents/machines requiring structured data.
-
-### Key Features
-- **Auto-Sync:** A scheduled GitHub Action automatically pulls data from Google Sheets, sanitizes Persian text, URL-decodes cells, and publishes updates every 6 hours.
-- **Agent-First Design:** Includes a unified `taxonomy.json` containing metadata, epoch timestamps for freshness validation, and raw arrays.
-- **Human-Readable Tables:** Styled static HTML pages with sticky headers and responsive layouts.
-- **Custom CDN Integration:** Served securely via ParsPack CDN and GitHub Pages on `meta.buyruz.com`.
+آدرس دسترسی مستقیم: **[meta.buyruz.com](https://meta.buyruz.com)**
 
 ---
 
-## 📂 Repository Structure
-
-| File | Type | Description | Link |
-|---|---|---|---|
-| `taxonomy.json` | JSON | Unified snapshot containing all datasets, counts, and metadata. | [View](https://meta.buyruz.com/taxonomy.json) |
-| `products.html` / `.json` | HTML / JSON | WooCommerce products, short names, brands, and IDs. | [HTML](https://meta.buyruz.com/products.html) / [JSON](https://meta.buyruz.com/products.json) |
-| `brands.html` / `.json` | HTML / JSON | Brand names and clean URL-friendly slugs. | [HTML](https://meta.buyruz.com/brands.html) / [JSON](https://meta.buyruz.com/brands.json) |
-| `categories.html` / `.json` | HTML / JSON | Hierarchical category tree and sidebar filter requirements. | [HTML](https://meta.buyruz.com/categories.html) / [JSON](https://meta.buyruz.com/categories.json) |
-| `attributes.html` / `.json` | HTML / JSON | Product attributes (colors, sizes, age groups) with parsed options. | [HTML](https://meta.buyruz.com/attributes.html) / [JSON](https://meta.buyruz.com/attributes.json) |
-| `tags.html` / `.json` | HTML / JSON | Product tags and IDs. | [HTML](https://meta.buyruz.com/tags.html) / [JSON](https://meta.buyruz.com/tags.json) |
-| `refresh.php` | PHP | Core CLI/Web script that fetches Google Sheets, normalizes cells, and builds static files. | [Source](refresh.php) |
-| `index.html` | HTML | Navigation landing page with statistics and usage guides. | [View](https://meta.buyruz.com/index.html) |
+## 🌟 ویژگی‌های کلیدی
+- **بروزرسانی خودکار:** اجرای دوره‌ای اسکریپت از طریق کران‌جاب گیت‌هاب (هر ۶ ساعت یک‌بار) جهت خواندن داده‌ها از گوگل شیت، نرمال‌سازی متون فارسی و انتشار خروجی‌ها.
+- **دسترسی سریع و پایدار:** میزبانی مستقیم روی سرورهای گیت‌هاب به همراه اتصال به شبکه توزیع محتوای پارس‌پک برای سرعت لود بالا در ایران.
+- **ساختار داده مجزا و یکپارچه:** خروجی صفحات وب خوانا برای انسان و فایل‌های ساختاریافته برای ماشین.
 
 ---
 
-## ⚙️ Automated Workflow
-The automation is powered by GitHub Actions:
-- **Location:** `.github/workflows/cron-refresh.yml`
-- **Schedule:** Every 6 hours (`0 */6 * * *`)
-- **Process:** Checks out repository ➡️ Sets up PHP ➡️ Runs `php refresh.php` ➡️ Commits changes ➡️ Deploys to GitHub Pages (`meta.buyruz.com`).
+## 📂 ساختار فایل‌ها و داده‌ها
 
-To trigger a manual build, navigate to the **Actions** tab in GitHub, select **Scheduled Taxonomy Refresh**, and click **Run workflow**.
-
----
-
-## 🤖 Guidelines for AI Agents & LLMs
-When writing product descriptions, mapping listings, or updating metadata:
-1. **Prefer `taxonomy.json`:** Use it as the single source of truth.
-2. **Freshness Check:** Check `meta.stale_after_seconds` or compare `updated_at_epoch_seconds_utc` to ensure the snapshot isn't outdated.
-3. **Strict Constraints:**
-   - Do **NOT** create new categories or brands. Only map to existing ones.
-   - Do **NOT** create new tags.
-   - You may suggest new product attributes only when they do not overlap with existing attributes (e.g., do not create "تعداد تکه‌ها" if "تعداد قطعات" is already present).
-4. **IDs:** Never alter or ignore WooCommerce IDs or Parent IDs when mapping tags, categories, or products.
+| نام فایل | نوع | توضیحات |
+|---|---|---|
+| `taxonomy.json` | فایل جامع | فایل یکپارچه حاوی تمامی داده‌ها، تعداد ردیف‌ها و اطلاعات آخرین بروزرسانی. |
+| `products.html` / `.json` | محصولات | لیست نام محصولات، نام کوتاه، نام برند و شناسه اختصاصی ووکامرس. |
+| `brands.html` / `.json` | برندها | لیست نام فارسی برندها و نامک انگلیسی آن‌ها. |
+| `categories.html` / `.json` | دسته‌بندی‌ها | ساختار درختی دسته‌بندی‌ها و فیلترهای مورد نیاز برای هر دسته. |
+| `attributes.html` / `.json` | ویژگی‌ها | مشخصات فنی محصولات مانند رنگ، جنس، گروه سنی و مقادیر مجاز آن‌ها. |
+| `tags.html` / `.json` | تگ‌ها | لیست تگ‌های محصولات به همراه شناسه‌های عددی و نامک‌ها. |
+| `refresh.php` | اسکریپت اصلی | هسته پردازش داده‌ها که فایل‌های گوگل شیت را به صورت فایل‌های استاتیک بازسازی می‌کند. |
+| `index.html` | صفحه راهنما | صفحه فرود اصلی به همراه آمار لحظه‌ای و خلاصه قوانین کار با داده‌ها. |
 
 ---
 
-## 🛠 Manual Execution
-You can run the generator script manually for local testing:
+## ⚙️ گردش کار خودکار (کران‌جاب)
+فرآیند بروزرسانی به صورت خودکار توسط بخش اکشن‌های گیت‌هاب مدیریت می‌شود:
+- **مسیر تنظیمات:** `.github/workflows/cron-refresh.yml`
+- **زمان‌بندی اجرا:** هر ۶ ساعت یک‌بار به وقت سرور.
+- **مراحل اجرا:** سیستم یک محیط موقت راه‌اندازی کرده، اسکریپت اصلی را اجرا می‌کند و پس از بازسازی فایل‌ها، آن‌ها را به صورت خودکار در شاخه اصلی ذخیره کرده و روی دامنه منتشر می‌سازد.
+
+*همچنین امکان اجرای دستی این فرآیند از طریق بخش Actions در پنل گیت‌هاب فراهم است.*
+
+---
+
+## 🤖 راهنمای استفاده برای هوش مصنوعی و ربات‌ها
+هنگام تولید محتوا، دسته‌بندی یا کار با شناسه‌های محصولات، رعایت موارد زیر الزامی است:
+۱. **فایل مرجع:** همواره از فایل جامع `taxonomy.json` به عنوان منبع اصلی و یکپارچه داده‌ها استفاده کنید.
+۲. **کنترل سن داده:** با استفاده از متادیتای موجود در فایل‌های جیسون، سن فایل و معتبر بودن آن را بررسی کنید.
+۳. **محدودیت‌های ثبت داده:**
+   - ساخت برند یا دسته‌بندی جدید مجاز نیست؛ فقط از موارد موجود در لیست استفاده کنید.
+   - ساخت تگ‌های جدید مجاز نیست.
+   - ثبت ویژگی جدید برای محصولات مجاز است، اما از ایجاد ویژگی‌های هم‌معنی و تکراری خودداری کنید (مثلاً اگر ویژگی «تعداد قطعات» موجود است، ویژگی جدیدی به نام «تعداد تکه‌ها» نسازید).
+۴. **شناسه‌ها:** شناسه‌های ووکامرس و شناسه‌های والد دسته‌بندی‌ها را هرگز تغییر نداده یا نادیده نگیرید.
+
+---
+
+## 🛠 اجرای دستی (تست محلی)
+برای اجرای دستی اسکریپت و بازسازی فایل‌ها در محیط سیستم شخصی خود، دستور زیر را در ترمینال اجرا کنید:
 ```bash
 php refresh.php
 ```
-When running locally via CLI, authentication is bypassed. To trigger via browser, append the secret parameter:
-```
-http://localhost/refresh.php?secret=YOUR_SECRET
-```
 
 ---
-*Created and maintained automatically by Buyruz Development Team.*
+*تولید و بروزرسانی شده به صورت خودکار توسط تیم فنی بایروز.*
