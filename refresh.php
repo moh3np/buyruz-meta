@@ -24,7 +24,7 @@ const ENDPOINTS = [
   'new_products' => 880069675,
 ];
 const TAXONOMY_JSON = 'taxonomy.json';
-const VERSION = '1.1.4';
+const VERSION = '1.1.5';
 
 // خروجی‌ها در همین دایرکتوری ساخته می‌شوند
 const OUTPUT_DIR = __DIR__;
