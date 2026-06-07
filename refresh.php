@@ -24,7 +24,7 @@ const ENDPOINTS = [
   'new_products' => 880069675,
 ];
 const TAXONOMY_JSON = 'taxonomy.json';
-const VERSION = '1.1.3';
+const VERSION = '1.1.4';
 
 // خروجی‌ها در همین دایرکتوری ساخته می‌شوند
 const OUTPUT_DIR = __DIR__;
@@ -1149,6 +1149,53 @@ html.dark .theme-btn.active {
 html.dark .version-badge {
   background: rgba(255, 255, 255, 0.03);
 }
+
+/* Toast Notifications */
+.toast-container {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  z-index: 1000;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  pointer-events: none;
+}
+.toast {
+  background: var(--card);
+  border: 1px solid var(--border);
+  color: var(--text);
+  padding: 12px 20px;
+  border-radius: 12px;
+  font-size: 0.9rem;
+  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.08);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  transform: translateY(20px);
+  opacity: 0;
+  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+  pointer-events: auto;
+  min-width: 250px;
+  max-width: 380px;
+  direction: rtl;
+}
+html.dark .toast {
+  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.4);
+}
+.toast.show {
+  transform: translateY(0);
+  opacity: 1;
+}
+.toast-success {
+  border-right: 4px solid #10b981;
+}
+.toast-error {
+  border-right: 4px solid #ef4444;
+}
+.toast-info {
+  border-right: 4px solid #06b6d4;
+}
 CSS;
 }
 
@@ -1253,6 +1300,38 @@ function relative_time_script(): string {
       }
     });
   }
+
+  // Global Toast System
+  window.showToast = function(message, type = 'info') {
+    let container = document.querySelector('.toast-container');
+    if (!container) {
+      container = document.createElement('div');
+      container.className = 'toast-container';
+      document.body.appendChild(container);
+    }
+    const toast = document.createElement('div');
+    toast.className = 'toast toast-' + type;
+    let icon = 'ℹ️';
+    if (type === 'success') icon = '✅';
+    if (type === 'error') icon = '❌';
+    
+    toast.innerHTML = '<span style="font-size:1.1rem;">' + icon + '</span><span style="flex-grow:1;">' + message + '</span>';
+    container.appendChild(toast);
+    
+    toast.offsetHeight; // Force reflow
+    toast.classList.add('show');
+    
+    setTimeout(() => {
+      toast.classList.remove('show');
+      const removeToast = () => {
+        toast.remove();
+        if (container.children.length === 0) {
+          container.remove();
+        }
+      };
+      toast.addEventListener('transitionend', removeToast, { once: true });
+    }, 4000);
+  };
 })();
 </script>
 HTML;
@@ -1585,8 +1664,9 @@ let pollInterval;
 
 function copyToClipboard(text) {
   navigator.clipboard.writeText(text).then(() => {
-    alert('لینک فایل جامع کپی شد.');
+    showToast('لینک فایل جامع با موفقیت کپی شد.', 'success');
   }).catch(err => {
+    showToast('خطا در کپی کردن لینک.', 'error');
     console.error('Failed to copy: ', err);
   });
 }
@@ -1602,7 +1682,7 @@ function closeTokenModal() {
 function saveTokenAndSync() {
   const token = document.getElementById('pat-token').value.trim();
   if (!token) {
-    alert('لطفاً توکن را وارد کنید.');
+    showToast('لطفاً توکن گیت‌هاب را وارد کنید.', 'error');
     return;
   }
   localStorage.setItem('gh_pat', token);
