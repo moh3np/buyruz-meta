@@ -77,40 +77,47 @@ th:nth-child(3), td:nth-child(3){
 .tblwrap-products th:nth-child(3), .tblwrap-products td:nth-child(3){
   width:auto; min-width:150px; max-width:none;
   white-space:normal; text-align:right; direction:rtl;
+}
 .tblwrap-products th:nth-child(4), .tblwrap-products td:nth-child(4){
   width:120px; min-width:120px;
   white-space:nowrap; text-align:center; direction:ltr; font-variant-numeric:tabular-nums;
 }
 
 /* =========================================
-   Dashboard Specific Styles (Dark Mode Override)
+   Dashboard Specific Styles (Modern Minimal Dark Mode)
    ========================================= */
 body.index-page {
-  --bg: #0f172a;
-  --card: #1e293b;
-  --text: #f1f5f9;
-  --muted: #94a3b8;
-  --border: #334155;
+  --bg: #090d16;
+  --card: #111726;
+  --text: #f3f4f6;
+  --muted: #9ca3af;
+  --border: #1f293d;
   --brand: #6366f1;
   --accent: #06b6d4;
-  --accent-weak: rgba(6, 182, 212, 0.15);
+  --accent-weak: rgba(6, 182, 212, 0.08);
   background-color: var(--bg);
+  color: var(--text);
 }
 body.index-page .topnav {
-  background: rgba(30, 41, 59, 0.85);
+  background: rgba(17, 23, 38, 0.85);
   border-bottom: 1px solid var(--border);
+  backdrop-filter: blur(12px);
 }
 body.index-page .topnav a {
   color: var(--muted);
+  font-size: 0.9rem;
+  padding: 6px 12px;
+  border-radius: 8px;
+  transition: all 0.2s;
 }
 body.index-page .topnav a:hover {
-  background: rgba(255, 255, 255, 0.05);
+  background: rgba(255, 255, 255, 0.03);
   color: #fff;
 }
 body.index-page .topnav a.active {
-  color: var(--accent);
+  color: #06b6d4;
   background: var(--accent-weak);
-  border-color: var(--accent);
+  border-color: #06b6d4;
 }
 body.index-page .dashboard-grid {
   display: grid;
@@ -119,75 +126,79 @@ body.index-page .dashboard-grid {
   margin-top: 24px;
 }
 body.index-page .card-stat {
-  padding: 20px;
+  padding: 24px;
   border-radius: 16px;
   background: var(--card);
   border: 1px solid var(--border);
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  position: relative;
-  overflow: hidden;
-  min-height: 190px;
-}
-body.index-page .card-stat::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 4px;
-  background: linear-gradient(90deg, var(--brand), var(--accent));
+  min-height: 200px;
 }
 body.index-page .card-stat:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.3);
-  border-color: var(--accent);
+  transform: translateY(-4px);
+  border-color: rgba(6, 182, 212, 0.4);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.25);
 }
 body.index-page .btn-sync {
-  background: linear-gradient(90deg, var(--brand), var(--accent));
-  color: white;
+  background: #06b6d4;
+  color: #090d16;
   border: none;
   padding: 12px 24px;
-  border-radius: 12px;
-  font-weight: bold;
+  border-radius: 10px;
+  font-weight: 700;
   cursor: pointer;
   display: inline-flex;
   align-items: center;
-  gap: 10px;
-  transition: all 0.3s ease;
-  box-shadow: 0 4px 12px rgba(99, 102, 241, 0.3);
+  gap: 8px;
+  transition: all 0.2s ease;
   font-family: inherit;
-  font-size: 0.92rem;
+  font-size: 0.9rem;
 }
 body.index-page .btn-sync:hover {
-  transform: scale(1.02);
-  box-shadow: 0 6px 20px rgba(6, 182, 212, 0.4);
+  background: #0891b2;
+  box-shadow: 0 0 15px rgba(6, 182, 212, 0.3);
 }
 body.index-page .btn-sync:active {
   transform: scale(0.98);
+}
+body.index-page .btn-secondary-outline {
+  background: transparent;
+  color: var(--text);
+  border: 1px solid var(--border);
+  padding: 8px 16px;
+  border-radius: 8px;
+  font-size: 0.82rem;
+  flex: 1;
+  text-align: center;
+  transition: all 0.2s;
+  text-decoration: none;
+}
+body.index-page .btn-secondary-outline:hover {
+  background: rgba(255, 255, 255, 0.03);
+  border-color: var(--muted);
 }
 body.index-page .modal {
   display: none;
   position: fixed;
   top: 0; left: 0; width: 100%; height: 100%;
-  background: rgba(15, 23, 42, 0.85);
+  background: rgba(9, 13, 22, 0.85);
   backdrop-filter: blur(8px);
   z-index: 100;
   align-items: center;
   justify-content: center;
 }
 body.index-page .modal-content {
-  background: #1e293b;
-  border: 1px solid #334155;
-  border-radius: 20px;
-  padding: 30px;
+  background: #111726;
+  border: 1px solid #1f293d;
+  border-radius: 16px;
+  padding: 24px;
   width: 90%;
-  max-width: 480px;
-  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
-  animation: modalFadeIn 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+  max-width: 440px;
   text-align: right;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+  animation: modalFadeIn 0.3s cubic-bezier(0.16, 1, 0.3, 1);
 }
 @keyframes modalFadeIn {
   from { opacity: 0; transform: translateY(-20px) scale(0.95); }
@@ -195,27 +206,28 @@ body.index-page .modal-content {
 }
 body.index-page .modal-title {
   margin-top: 0;
-  font-size: 1.3rem;
-  color: #f1f5f9;
+  font-size: 1.25rem;
+  color: #f3f4f6;
   display: flex;
   align-items: center;
   gap: 8px;
+  font-weight: 600;
 }
 body.index-page .modal-input {
   width: 100%;
   padding: 12px;
-  border-radius: 10px;
-  border: 1px solid #334155;
-  background: #0f172a;
-  color: #f1f5f9;
+  border-radius: 8px;
+  border: 1px solid #1f293d;
+  background: #090d16;
+  color: #fff;
   font-family: inherit;
-  margin: 15px 0;
+  margin: 16px 0;
   direction: ltr;
   outline: none;
   transition: border-color 0.2s;
 }
 body.index-page .modal-input:focus {
-  border-color: var(--accent);
+  border-color: #06b6d4;
 }
 body.index-page .modal-actions {
   display: flex;
@@ -224,7 +236,7 @@ body.index-page .modal-actions {
   margin-top: 20px;
 }
 body.index-page .btn-primary {
-  background: var(--brand);
+  background: #6366f1;
   color: white;
   border: none;
   padding: 10px 20px;
@@ -232,6 +244,10 @@ body.index-page .btn-primary {
   cursor: pointer;
   font-weight: bold;
   font-family: inherit;
+  transition: background 0.2s;
+}
+body.index-page .btn-primary:hover {
+  background: #4f46e5;
 }
 body.index-page .btn-secondary {
   background: transparent;
@@ -241,23 +257,30 @@ body.index-page .btn-secondary {
   border-radius: 8px;
   cursor: pointer;
   font-family: inherit;
+  transition: all 0.2s;
+}
+body.index-page .btn-secondary:hover {
+  background: rgba(255, 255, 255, 0.03);
+  border-color: var(--muted);
 }
 body.index-page .status-box {
-  margin-top: 15px;
-  padding: 15px;
-  border-radius: 12px;
-  background: rgba(99, 102, 241, 0.1);
-  border: 1px dashed var(--brand);
+  margin-top: 16px;
+  padding: 12px 16px;
+  border-radius: 10px;
+  background: rgba(6, 182, 212, 0.05);
+  border: 1px solid rgba(6, 182, 212, 0.15);
   display: none;
   align-items: center;
   gap: 12px;
+  font-size: 0.85rem;
+  color: #06b6d4;
   animation: modalFadeIn 0.3s ease;
 }
 body.index-page .spinner {
-  width: 20px;
-  height: 20px;
-  border: 3px solid rgba(255, 255, 255, 0.1);
-  border-top-color: var(--accent);
+  width: 18px;
+  height: 18px;
+  border: 2px solid rgba(6, 182, 212, 0.1);
+  border-top-color: #06b6d4;
   border-radius: 50%;
   animation: spin 1s infinite linear;
   flex-shrink: 0;
@@ -284,7 +307,7 @@ body.index-page .spinner {
   <div class="card">
     <div class="header">
       <h1>لیست دسته‌بندی‌ها <span class="badge">14 ردیف</span></h1>
-      <div class="count">بروزرسانی: 2026-06-07 16:03:04 (+03:30)<span class="rel-time" data-relative-time="2026-06-07T16:02:59+03:30"></span></div>
+      <div class="count">بروزرسانی: 2026-06-07 16:05:54 (+03:30)<span class="rel-time" data-relative-time="2026-06-07T16:05:50+03:30"></span></div>
     </div>
     <div class="tblwrap tblwrap-categories" role="region" aria-label="snapshot">
       <table>
