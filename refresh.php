@@ -702,12 +702,22 @@ function normalize_key(string $key): string {
 
 function common_css(): string {
   return <<<CSS
-:root{
+:root, html.light {
   --bg:#f7f8fb;--card:#fff;--text:#101114;--muted:#6b7280;--border:#e6e8ee;
-  --brand:#1f2937;--accent:#0ea5e9;--accent-weak:#e0f2fe
+  --brand:#1f2937;--accent:#0ea5e9;--accent-weak:#e0f2fe;
+}
+html.dark {
+  --bg:#090d16;--card:#111726;--text:#f3f4f6;--muted:#9ca3af;--border:#1f293d;
+  --brand:#6366f1;--accent:#06b6d4;--accent-weak:rgba(6,182,212,0.08);
 }
 *{box-sizing:border-box}
-html,body{margin:0;padding:0;background:var(--bg);color:var(--text);font-family:Vazirmatn,IRANSans,Segoe UI,Arial,sans-serif}
+html,body{
+  margin:0;padding:0;
+  background-color:var(--bg);
+  color:var(--text);
+  font-family:Vazirmatn,IRANSans,Segoe UI,Arial,sans-serif;
+  transition:background-color 0.15s ease, color 0.15s ease, border-color 0.15s ease;
+}
 a{color:var(--brand);text-decoration:none}
 .container{max-width:1120px;margin:24px auto;padding:0 16px}
 .card{background:var(--card);border:1px solid var(--border);border-radius:16px;box-shadow:0 2px 10px rgba(0,0,0,.04);overflow:hidden}
@@ -986,6 +996,69 @@ body.index-page .spinner {
     grid-template-columns: 1fr !important;
   }
 }
+
+/* Global Dark Theme Overrides */
+html.dark .topnav {
+  background: rgba(17, 23, 38, 0.85);
+}
+html.dark .topnav a:hover {
+  background: rgba(255, 255, 255, 0.03);
+  color: #fff;
+}
+html.dark thead th {
+  background: #111726;
+  color: #fff;
+  border-bottom: 1px solid var(--border);
+}
+html.dark tbody tr:nth-child(odd){background:#111726}
+html.dark tbody tr:nth-child(even){background:#161d2f}
+html.dark tbody tr:hover{background:#1e293d}
+html.dark .badge {background: #1e293d; color: #f3f4f6; border-color: var(--border);}
+html.dark .note {background: #161d2f; border-color: var(--border);}
+html.dark .card {background: var(--card); border-color: var(--border); box-shadow: 0 4px 20px rgba(0,0,0,0.4);}
+
+/* Theme Toggle Button */
+.theme-btn {
+  margin-right: auto;
+  background: transparent;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  cursor: pointer;
+  font-size: 1.1rem;
+  padding: 6px 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s;
+  color: var(--text);
+  outline: none;
+}
+.theme-btn:hover {
+  background: rgba(0, 0, 0, 0.05);
+}
+html.dark .theme-btn:hover {
+  background: rgba(255, 255, 255, 0.05);
+}
+
+/* Categories Page Layout Overrides (Prevent Squishing) */
+.tblwrap-categories table {
+  min-width: 1500px;
+}
+.tblwrap-categories th, .tblwrap-categories td {
+  white-space: nowrap;
+}
+.tblwrap-categories td:nth-child(5) {
+  white-space: normal;
+  min-width: 260px;
+}
+.tblwrap-categories td:nth-child(7) {
+  white-space: normal;
+  min-width: 280px;
+}
+.tblwrap-categories td:nth-child(8), .tblwrap-categories td:nth-child(9), .tblwrap-categories td:nth-child(10) {
+  white-space: normal;
+  min-width: 220px;
+}
 CSS;
 }
 
@@ -994,12 +1067,13 @@ function render_nav(string $active): string {
   $is = fn(string $k) => $k === $active ? 'class="active"' : '';
   return <<<HTML
 <nav class="topnav" aria-label="primary">
-  <a href="./index.html" {$is('index')}>راهنما</a>
+  <a href="./index.html" {$is('index')}>داشبورد</a>
   <a href="./brands.html" {$is('brands')}>برندها</a>
   <a href="./tags.html" {$is('tags')}>تگ‌ها</a>
   <a href="./categories.html" {$is('categories')}>دسته‌بندی‌ها</a>
   <a href="./attributes.html" {$is('attributes')}>ویژگی‌ها</a>
   <a href="./products.html" {$is('products')}>محصولات</a>
+  <button id="theme-toggle" class="theme-btn" aria-label="Toggle theme">🌙</button>
 </nav>
 HTML;
 }
@@ -1045,6 +1119,25 @@ function relative_time_script(): string {
     document.addEventListener('DOMContentLoaded', update);
   } else {
     update();
+  }
+  
+  // Theme Toggle Handler
+  const toggle = document.getElementById('theme-toggle');
+  if (toggle) {
+    const updateIcon = (theme) => {
+      const isDark = theme === 'dark' || (theme === 'system' && window.matchMedia('(prefers-color-scheme: dark)').matches);
+      toggle.innerHTML = isDark ? '☀️' : '🌙';
+    };
+    const currentTheme = localStorage.getItem('theme') || 'system';
+    updateIcon(currentTheme);
+    toggle.addEventListener('click', () => {
+      const isDark = document.documentElement.classList.contains('dark');
+      const newTheme = isDark ? 'light' : 'dark';
+      document.documentElement.classList.toggle('dark', !isDark);
+      document.documentElement.classList.toggle('light', isDark);
+      localStorage.setItem('theme', newTheme);
+      updateIcon(newTheme);
+    });
   }
 })();
 </script>
@@ -1196,6 +1289,14 @@ function render_table_page(string $name, string $title, array $rows, string $upd
 {$favicon}
 <title>{$title}</title>
 <style>{$css}</style>
+<script>
+(function() {
+  const theme = localStorage.getItem('theme') || 'system';
+  const isDark = theme === 'dark' || (theme === 'system' && window.matchMedia('(prefers-color-scheme: dark)').matches);
+  document.documentElement.classList.toggle('dark', isDark);
+  document.documentElement.classList.toggle('light', !isDark);
+})();
+</script>
 </head>
 <body>
 {$nav}
@@ -1277,6 +1378,14 @@ HTML;
 {$favicon}
 <title>پنل پایش داده و متادیتا</title>
 <style>{$css}</style>
+<script>
+(function() {
+  const theme = localStorage.getItem('theme') || 'system';
+  const isDark = theme === 'dark' || (theme === 'system' && window.matchMedia('(prefers-color-scheme: dark)').matches);
+  document.documentElement.classList.toggle('dark', isDark);
+  document.documentElement.classList.toggle('light', !isDark);
+})();
+</script>
 </head>
 <body class="index-page">
 {$nav}
