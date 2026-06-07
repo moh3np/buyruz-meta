@@ -35,10 +35,35 @@ h1{font-size:1.1rem;margin:0}
 .badge{display:inline-block;padding:.15rem .55rem;border-radius:999px;border:1px solid var(--border);font-size:.8rem;background:#fff;margin-right:.4rem}
 
 /* top nav */
-.topnav{position:sticky;top:0;z-index:50;display:flex;gap:8px;align-items:center;background:rgba(255,255,255,.9);backdrop-filter:blur(6px);padding:10px 12px;border-bottom:1px solid var(--border)}
-.topnav a{padding:8px 10px;border-radius:10px;border:1px solid transparent}
-.topnav a:hover{background:#fafafa}
-.topnav a.active{border-color:var(--accent);background:var(--accent-weak)}
+.topnav {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(12px);
+  padding: 10px 12px;
+  border-bottom: 1px solid var(--border);
+}
+.topnav a {
+  color: var(--muted);
+  font-size: 0.9rem;
+  padding: 8px 12px;
+  border-radius: 10px;
+  transition: all 0.2s;
+  border: 1px solid transparent;
+}
+.topnav a:hover {
+  background: rgba(0, 0, 0, 0.03);
+  color: var(--text);
+}
+.topnav a.active {
+  color: var(--accent);
+  background: var(--accent-weak);
+  border-color: var(--accent);
+}
 
 /* table */
 .tblwrap{overflow:auto;max-height:calc(100vh - 260px)}
@@ -96,38 +121,12 @@ th:nth-child(3), td:nth-child(3){
 /* =========================================
    Dashboard Specific Styles (Modern Minimal Dark Mode)
    ========================================= */
+/* =========================================
+   Dashboard Specific Styles (Modern Minimal)
+   ========================================= */
 body.index-page {
-  --bg: #090d16;
-  --card: #111726;
-  --text: #f3f4f6;
-  --muted: #9ca3af;
-  --border: #1f293d;
-  --brand: #6366f1;
-  --accent: #06b6d4;
-  --accent-weak: rgba(6, 182, 212, 0.08);
   background-color: var(--bg);
   color: var(--text);
-}
-body.index-page .topnav {
-  background: rgba(17, 23, 38, 0.85);
-  border-bottom: 1px solid var(--border);
-  backdrop-filter: blur(12px);
-}
-body.index-page .topnav a {
-  color: var(--muted);
-  font-size: 0.9rem;
-  padding: 6px 12px;
-  border-radius: 8px;
-  transition: all 0.2s;
-}
-body.index-page .topnav a:hover {
-  background: rgba(255, 255, 255, 0.03);
-  color: #fff;
-}
-body.index-page .topnav a.active {
-  color: #06b6d4;
-  background: var(--accent-weak);
-  border-color: #06b6d4;
 }
 body.index-page .dashboard-grid {
   display: grid;
@@ -148,12 +147,16 @@ body.index-page .card-stat {
 }
 body.index-page .card-stat:hover {
   transform: translateY(-4px);
+  border-color: var(--accent);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.04);
+}
+html.dark body.index-page .card-stat:hover {
   border-color: rgba(6, 182, 212, 0.4);
   box-shadow: 0 12px 30px rgba(0, 0, 0, 0.25);
 }
 body.index-page .btn-sync {
-  background: #06b6d4;
-  color: #090d16;
+  background: var(--accent);
+  color: var(--card);
   border: none;
   padding: 12px 24px;
   border-radius: 10px;
@@ -167,8 +170,8 @@ body.index-page .btn-sync {
   font-size: 0.9rem;
 }
 body.index-page .btn-sync:hover {
-  background: #0891b2;
-  box-shadow: 0 0 15px rgba(6, 182, 212, 0.3);
+  filter: brightness(0.95);
+  box-shadow: 0 4px 12px var(--accent-weak);
 }
 body.index-page .btn-sync:active {
   transform: scale(0.98);
@@ -186,28 +189,31 @@ body.index-page .btn-secondary-outline {
   text-decoration: none;
 }
 body.index-page .btn-secondary-outline:hover {
-  background: rgba(255, 255, 255, 0.03);
+  background: rgba(0, 0, 0, 0.02);
   border-color: var(--muted);
+}
+html.dark body.index-page .btn-secondary-outline:hover {
+  background: rgba(255, 255, 255, 0.03);
 }
 body.index-page .modal {
   display: none;
   position: fixed;
   top: 0; left: 0; width: 100%; height: 100%;
-  background: rgba(9, 13, 22, 0.85);
+  background: rgba(9, 13, 22, 0.8);
   backdrop-filter: blur(8px);
   z-index: 100;
   align-items: center;
   justify-content: center;
 }
 body.index-page .modal-content {
-  background: #111726;
-  border: 1px solid #1f293d;
+  background: var(--card);
+  border: 1px solid var(--border);
   border-radius: 16px;
   padding: 24px;
   width: 90%;
   max-width: 440px;
   text-align: right;
-  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.1);
   animation: modalFadeIn 0.3s cubic-bezier(0.16, 1, 0.3, 1);
 }
 @keyframes modalFadeIn {
@@ -217,7 +223,7 @@ body.index-page .modal-content {
 body.index-page .modal-title {
   margin-top: 0;
   font-size: 1.25rem;
-  color: #f3f4f6;
+  color: var(--text);
   display: flex;
   align-items: center;
   gap: 8px;
@@ -227,9 +233,9 @@ body.index-page .modal-input {
   width: 100%;
   padding: 12px;
   border-radius: 8px;
-  border: 1px solid #1f293d;
-  background: #090d16;
-  color: #fff;
+  border: 1px solid var(--border);
+  background: var(--bg);
+  color: var(--text);
   font-family: inherit;
   margin: 16px 0;
   direction: ltr;
@@ -237,7 +243,7 @@ body.index-page .modal-input {
   transition: border-color 0.2s;
 }
 body.index-page .modal-input:focus {
-  border-color: #06b6d4;
+  border-color: var(--accent);
 }
 body.index-page .modal-actions {
   display: flex;
@@ -246,7 +252,7 @@ body.index-page .modal-actions {
   margin-top: 20px;
 }
 body.index-page .btn-primary {
-  background: #6366f1;
+  background: var(--brand);
   color: white;
   border: none;
   padding: 10px 20px;
@@ -257,7 +263,7 @@ body.index-page .btn-primary {
   transition: background 0.2s;
 }
 body.index-page .btn-primary:hover {
-  background: #4f46e5;
+  filter: brightness(0.9);
 }
 body.index-page .btn-secondary {
   background: transparent;
@@ -270,27 +276,30 @@ body.index-page .btn-secondary {
   transition: all 0.2s;
 }
 body.index-page .btn-secondary:hover {
-  background: rgba(255, 255, 255, 0.03);
+  background: rgba(0, 0, 0, 0.02);
   border-color: var(--muted);
+}
+html.dark body.index-page .btn-secondary:hover {
+  background: rgba(255, 255, 255, 0.03);
 }
 body.index-page .status-box {
   margin-top: 16px;
   padding: 12px 16px;
   border-radius: 10px;
-  background: rgba(6, 182, 212, 0.05);
-  border: 1px solid rgba(6, 182, 212, 0.15);
+  background: var(--accent-weak);
+  border: 1px solid var(--border);
   display: none;
   align-items: center;
   gap: 12px;
   font-size: 0.85rem;
-  color: #06b6d4;
+  color: var(--accent);
   animation: modalFadeIn 0.3s ease;
 }
 body.index-page .spinner {
   width: 18px;
   height: 18px;
-  border: 2px solid rgba(6, 182, 212, 0.1);
-  border-top-color: #06b6d4;
+  border: 2px solid var(--accent-weak);
+  border-top-color: var(--accent);
   border-radius: 50%;
   animation: spin 1s infinite linear;
   flex-shrink: 0;
@@ -407,7 +416,7 @@ html.dark .version-badge {
   <div class="card">
     <div class="header">
       <h1>لیست دسته‌بندی‌ها <span class="badge">14 ردیف</span></h1>
-      <div class="count">بروزرسانی: 2026-06-08 00:41:36 (+03:30)<span class="rel-time" data-relative-time="2026-06-08T00:41:32+03:30"></span></div>
+      <div class="count">بروزرسانی: 2026-06-08 00:44:34 (+03:30)<span class="rel-time" data-relative-time="2026-06-08T00:44:30+03:30"></span></div>
     </div>
     <div class="tblwrap tblwrap-categories" role="region" aria-label="snapshot">
       <table>

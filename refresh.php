@@ -732,10 +732,35 @@ h1{font-size:1.1rem;margin:0}
 .badge{display:inline-block;padding:.15rem .55rem;border-radius:999px;border:1px solid var(--border);font-size:.8rem;background:#fff;margin-right:.4rem}
 
 /* top nav */
-.topnav{position:sticky;top:0;z-index:50;display:flex;gap:8px;align-items:center;background:rgba(255,255,255,.9);backdrop-filter:blur(6px);padding:10px 12px;border-bottom:1px solid var(--border)}
-.topnav a{padding:8px 10px;border-radius:10px;border:1px solid transparent}
-.topnav a:hover{background:#fafafa}
-.topnav a.active{border-color:var(--accent);background:var(--accent-weak)}
+.topnav {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(12px);
+  padding: 10px 12px;
+  border-bottom: 1px solid var(--border);
+}
+.topnav a {
+  color: var(--muted);
+  font-size: 0.9rem;
+  padding: 8px 12px;
+  border-radius: 10px;
+  transition: all 0.2s;
+  border: 1px solid transparent;
+}
+.topnav a:hover {
+  background: rgba(0, 0, 0, 0.03);
+  color: var(--text);
+}
+.topnav a.active {
+  color: var(--accent);
+  background: var(--accent-weak);
+  border-color: var(--accent);
+}
 
 /* table */
 .tblwrap{overflow:auto;max-height:calc(100vh - 260px)}
@@ -793,38 +818,12 @@ th:nth-child(3), td:nth-child(3){
 /* =========================================
    Dashboard Specific Styles (Modern Minimal Dark Mode)
    ========================================= */
+/* =========================================
+   Dashboard Specific Styles (Modern Minimal)
+   ========================================= */
 body.index-page {
-  --bg: #090d16;
-  --card: #111726;
-  --text: #f3f4f6;
-  --muted: #9ca3af;
-  --border: #1f293d;
-  --brand: #6366f1;
-  --accent: #06b6d4;
-  --accent-weak: rgba(6, 182, 212, 0.08);
   background-color: var(--bg);
   color: var(--text);
-}
-body.index-page .topnav {
-  background: rgba(17, 23, 38, 0.85);
-  border-bottom: 1px solid var(--border);
-  backdrop-filter: blur(12px);
-}
-body.index-page .topnav a {
-  color: var(--muted);
-  font-size: 0.9rem;
-  padding: 6px 12px;
-  border-radius: 8px;
-  transition: all 0.2s;
-}
-body.index-page .topnav a:hover {
-  background: rgba(255, 255, 255, 0.03);
-  color: #fff;
-}
-body.index-page .topnav a.active {
-  color: #06b6d4;
-  background: var(--accent-weak);
-  border-color: #06b6d4;
 }
 body.index-page .dashboard-grid {
   display: grid;
@@ -845,12 +844,16 @@ body.index-page .card-stat {
 }
 body.index-page .card-stat:hover {
   transform: translateY(-4px);
+  border-color: var(--accent);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.04);
+}
+html.dark body.index-page .card-stat:hover {
   border-color: rgba(6, 182, 212, 0.4);
   box-shadow: 0 12px 30px rgba(0, 0, 0, 0.25);
 }
 body.index-page .btn-sync {
-  background: #06b6d4;
-  color: #090d16;
+  background: var(--accent);
+  color: var(--card);
   border: none;
   padding: 12px 24px;
   border-radius: 10px;
@@ -864,8 +867,8 @@ body.index-page .btn-sync {
   font-size: 0.9rem;
 }
 body.index-page .btn-sync:hover {
-  background: #0891b2;
-  box-shadow: 0 0 15px rgba(6, 182, 212, 0.3);
+  filter: brightness(0.95);
+  box-shadow: 0 4px 12px var(--accent-weak);
 }
 body.index-page .btn-sync:active {
   transform: scale(0.98);
@@ -883,28 +886,31 @@ body.index-page .btn-secondary-outline {
   text-decoration: none;
 }
 body.index-page .btn-secondary-outline:hover {
-  background: rgba(255, 255, 255, 0.03);
+  background: rgba(0, 0, 0, 0.02);
   border-color: var(--muted);
+}
+html.dark body.index-page .btn-secondary-outline:hover {
+  background: rgba(255, 255, 255, 0.03);
 }
 body.index-page .modal {
   display: none;
   position: fixed;
   top: 0; left: 0; width: 100%; height: 100%;
-  background: rgba(9, 13, 22, 0.85);
+  background: rgba(9, 13, 22, 0.8);
   backdrop-filter: blur(8px);
   z-index: 100;
   align-items: center;
   justify-content: center;
 }
 body.index-page .modal-content {
-  background: #111726;
-  border: 1px solid #1f293d;
+  background: var(--card);
+  border: 1px solid var(--border);
   border-radius: 16px;
   padding: 24px;
   width: 90%;
   max-width: 440px;
   text-align: right;
-  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.1);
   animation: modalFadeIn 0.3s cubic-bezier(0.16, 1, 0.3, 1);
 }
 @keyframes modalFadeIn {
@@ -914,7 +920,7 @@ body.index-page .modal-content {
 body.index-page .modal-title {
   margin-top: 0;
   font-size: 1.25rem;
-  color: #f3f4f6;
+  color: var(--text);
   display: flex;
   align-items: center;
   gap: 8px;
@@ -924,9 +930,9 @@ body.index-page .modal-input {
   width: 100%;
   padding: 12px;
   border-radius: 8px;
-  border: 1px solid #1f293d;
-  background: #090d16;
-  color: #fff;
+  border: 1px solid var(--border);
+  background: var(--bg);
+  color: var(--text);
   font-family: inherit;
   margin: 16px 0;
   direction: ltr;
@@ -934,7 +940,7 @@ body.index-page .modal-input {
   transition: border-color 0.2s;
 }
 body.index-page .modal-input:focus {
-  border-color: #06b6d4;
+  border-color: var(--accent);
 }
 body.index-page .modal-actions {
   display: flex;
@@ -943,7 +949,7 @@ body.index-page .modal-actions {
   margin-top: 20px;
 }
 body.index-page .btn-primary {
-  background: #6366f1;
+  background: var(--brand);
   color: white;
   border: none;
   padding: 10px 20px;
@@ -954,7 +960,7 @@ body.index-page .btn-primary {
   transition: background 0.2s;
 }
 body.index-page .btn-primary:hover {
-  background: #4f46e5;
+  filter: brightness(0.9);
 }
 body.index-page .btn-secondary {
   background: transparent;
@@ -967,27 +973,30 @@ body.index-page .btn-secondary {
   transition: all 0.2s;
 }
 body.index-page .btn-secondary:hover {
-  background: rgba(255, 255, 255, 0.03);
+  background: rgba(0, 0, 0, 0.02);
   border-color: var(--muted);
+}
+html.dark body.index-page .btn-secondary:hover {
+  background: rgba(255, 255, 255, 0.03);
 }
 body.index-page .status-box {
   margin-top: 16px;
   padding: 12px 16px;
   border-radius: 10px;
-  background: rgba(6, 182, 212, 0.05);
-  border: 1px solid rgba(6, 182, 212, 0.15);
+  background: var(--accent-weak);
+  border: 1px solid var(--border);
   display: none;
   align-items: center;
   gap: 12px;
   font-size: 0.85rem;
-  color: #06b6d4;
+  color: var(--accent);
   animation: modalFadeIn 0.3s ease;
 }
 body.index-page .spinner {
   width: 18px;
   height: 18px;
-  border: 2px solid rgba(6, 182, 212, 0.1);
-  border-top-color: #06b6d4;
+  border: 2px solid var(--accent-weak);
+  border-top-color: var(--accent);
   border-radius: 50%;
   animation: spin 1s infinite linear;
   flex-shrink: 0;
@@ -1368,14 +1377,14 @@ function render_index_page(array $stats, string $buildDisplay, string $buildIso)
     $gridItems .= <<<HTML
 <div class="card-stat">
   <div>
-    <h4 style="margin:0 0 8px 0;font-size:1.1rem;color:#f1f5f9;display:flex;align-items:center;gap:6px;">{$label}</h4>
+    <h4 style="margin:0 0 8px 0;font-size:1.1rem;color:var(--text);display:flex;align-items:center;gap:6px;">{$label}</h4>
     <div style="font-size:1.8rem;font-weight:bold;color:var(--accent);margin:12px 0 8px 0;">{$c} <span style="font-size:0.9rem;font-weight:normal;color:var(--muted);">ردیف</span></div>
   </div>
   <div>
     <div style="font-size:0.78rem;color:var(--muted);margin-bottom:12px;direction:rtl;" data-relative-time="{$isoAttr}">بروزرسانی: {$display}</div>
     <div style="display:flex;gap:8px;">
-      <a href="./{$k}.html" style="padding:8px;background:rgba(255,255,255,0.05);border:1px solid var(--border);border-radius:8px;font-size:0.8rem;color:#f1f5f9;flex:1;text-align:center;transition:all 0.2s;" onmouseover="this.style.background='rgba(99,102,241,0.15)'" onmouseout="this.style.background='rgba(255,255,255,0.05)'">نمایش وب</a>
-      <a href="./{$k}.json" style="padding:8px;background:rgba(255,255,255,0.05);border:1px solid var(--border);border-radius:8px;font-size:0.8rem;color:#f1f5f9;flex:1;text-align:center;transition:all 0.2s;" onmouseover="this.style.background='rgba(6,182,212,0.15)'" onmouseout="this.style.background='rgba(255,255,255,0.05)'" download>دانلود JSON</a>
+      <a href="./{$k}.html" class="btn-secondary-outline">نمایش وب</a>
+      <a href="./{$k}.json" class="btn-secondary-outline" download>دانلود JSON</a>
     </div>
   </div>
 </div>
@@ -1416,7 +1425,7 @@ HTML;
   
   <!-- Title Header -->
   <div style="margin-bottom: 24px; text-align: right;">
-    <h1 style="font-size: 1.6rem; color: #f1f5f9; margin: 0 0 8px 0;">پنل پایش داده و متادیتا</h1>
+    <h1 style="font-size: 1.6rem; color: var(--text); margin: 0 0 8px 0;">پنل پایش داده و متادیتا</h1>
     <div style="font-size: 0.85rem; color: var(--muted);">آخرین ساخت سراسری: {$buildDisplayHtml}<span class="rel-time" data-relative-time="{$buildIsoAttr}"></span></div>
   </div>
 
@@ -1425,7 +1434,7 @@ HTML;
     <!-- Sync Card -->
     <div class="card" style="padding:20px;display:flex;flex-direction:column;justify-content:space-between;min-height:180px;">
       <div>
-        <h3 style="margin:0 0 10px 0;font-size:1.2rem;color:#f1f5f9;display:flex;align-items:center;gap:8px;">⚡ همگام‌سازی دستی داده‌ها</h3>
+        <h3 style="margin:0 0 10px 0;font-size:1.2rem;color:var(--text);display:flex;align-items:center;gap:8px;">⚡ همگام‌سازی دستی داده‌ها</h3>
         <p style="margin:0;font-size:0.85rem;color:var(--muted);line-height:1.6;">اگر داده‌ای را در گوگل شیت تغییر داده‌اید و نمی‌خواهید منتظر اجرای خودکار بعدی بمانید، با دکمه زیر فرآیند بازسازی را در لحظه آغاز کنید.</p>
       </div>
       <div style="margin-top:15px;">
@@ -1439,18 +1448,18 @@ HTML;
     <!-- Unified JSON Card -->
     <div class="card" style="padding:20px;display:flex;flex-direction:column;justify-content:space-between;min-height:180px;position:relative;overflow:hidden;border-color:var(--accent);">
       <div>
-        <h3 style="margin:0 0 10px 0;font-size:1.2rem;color:#f1f5f9;display:flex;align-items:center;gap:8px;">🔗 فایل جامع و یکپارچه</h3>
+        <h3 style="margin:0 0 10px 0;font-size:1.2rem;color:var(--text);display:flex;align-items:center;gap:8px;">🔗 فایل جامع و یکپارچه</h3>
         <p style="margin:0;font-size:0.85rem;color:var(--muted);line-height:1.6;">این فایل شامل تمامی داده‌های ۵ شیت به همراه متادیتای زمانی و راهنمای ساختار است که مرجع اصلی ایجنت‌ها محسوب می‌شود.</p>
       </div>
       <div style="margin-top:15px;display:flex;gap:10px;align-items:center;flex-wrap:wrap;">
         <a href="./taxonomy.json" style="padding:10px 20px;background:linear-gradient(90deg, #6366f1, #06b6d4);color:white;border-radius:10px;font-weight:bold;font-size:0.9rem;box-shadow:0 4px 12px rgba(6,182,212,0.25);">دانلود taxonomy.json</a>
-        <button onclick="copyToClipboard('https://meta.buyruz.com/taxonomy.json')" style="padding:10px 15px;background:rgba(255,255,255,0.05);border:1px solid var(--border);border-radius:10px;color:#f1f5f9;font-weight:bold;font-size:0.9rem;cursor:pointer;transition:all 0.2s;" onmouseover="this.style.background='rgba(255,255,255,0.1)'" onmouseout="this.style.background='rgba(255,255,255,0.05)'">کپی لینک فایل</button>
+        <button onclick="copyToClipboard('https://meta.buyruz.com/taxonomy.json')" class="btn-secondary-outline" style="padding:10px 15px;font-weight:bold;font-size:0.9rem;flex:initial;">کپی لینک فایل</button>
       </div>
     </div>
   </div>
 
   <!-- Dashboard Grid -->
-  <h3 style="color:#f1f5f9;margin:32px 0 16px 0;">📊 وضعیت اسنپ‌شات‌ها</h3>
+  <h3 style="color:var(--text);margin:32px 0 16px 0;">📊 وضعیت اسنپ‌شات‌ها</h3>
   <div class="dashboard-grid">
     {$gridItems}
   </div>
@@ -1466,10 +1475,10 @@ HTML;
   <div class="modal-content">
     <h3 class="modal-title">🔐 اتصال به گیت‌هاب</h3>
     <p style="color:var(--muted);font-size:0.85rem;line-height:1.6;margin:10px 0;">جهت احراز هویت برای ارسال دستور به گیت‌هاب، لطفاً توکن شخصی خود (GitHub PAT) را وارد کنید. این توکن فقط در مرورگر شما ذخیره خواهد شد.</p>
-    <div style="font-size:0.8rem;background:#0f172a;padding:12px;border-radius:8px;border:1px solid var(--border);margin-bottom:15px;color:var(--muted);line-height:1.5;">
+    <div style="font-size:0.8rem;background:var(--bg);padding:12px;border-radius:8px;border:1px solid var(--border);margin-bottom:15px;color:var(--muted);line-height:1.5;">
       💡 توکن شما باید دسترسی‌های <strong>Actions: write</strong> و <strong>Contents: write</strong> برای این مخزن داشته باشد.
     </div>
-    <label style="font-size:0.85rem;color:#f1f5f9;">توکن گیت‌هاب (GitHub PAT):</label>
+    <label style="font-size:0.85rem;color:var(--text);">توکن گیت‌هاب (GitHub PAT):</label>
     <input type="password" id="pat-token" class="modal-input" placeholder="ghp_XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX">
     <div class="modal-actions">
       <button class="btn-secondary" onclick="closeTokenModal()">انصراف</button>
@@ -1551,7 +1560,7 @@ function setSyncStatus(type, message) {
   
   let content = '';
   if (type === 'initiating' || type === 'queued' || type === 'running') {
-    content = `<div class="spinner"></div><span style="font-size:0.88rem;color:#f1f5f9;">\${message}</span>`;
+    content = `<div class="spinner"></div><span style="font-size:0.88rem;color:var(--text);">\${message}</span>`;
     box.style.borderColor = 'var(--brand)';
     box.style.background = 'rgba(99, 102, 241, 0.1)';
   } else if (type === 'success') {
