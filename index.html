@@ -333,27 +333,49 @@ html.dark .badge {background: #1e293d; color: #f3f4f6; border-color: var(--borde
 html.dark .note {background: #161d2f; border-color: var(--border);}
 html.dark .card {background: var(--card); border-color: var(--border); box-shadow: 0 4px 20px rgba(0,0,0,0.4);}
 
-/* Theme Toggle Button */
-.theme-btn {
+/* Theme Switcher Segmented Control */
+.theme-switch {
   margin-right: auto;
-  background: transparent;
+  display: inline-flex;
+  align-items: center;
+  background: rgba(0, 0, 0, 0.03);
   border: 1px solid var(--border);
   border-radius: 10px;
+  padding: 2px;
+  gap: 2px;
+}
+html.dark .theme-switch {
+  background: rgba(255, 255, 255, 0.03);
+}
+.theme-btn {
+  background: transparent;
+  border: 1px solid transparent;
+  border-radius: 8px;
   cursor: pointer;
-  font-size: 1.1rem;
-  padding: 6px 10px;
+  font-size: 0.9rem;
+  padding: 5px 8px;
   display: flex;
   align-items: center;
   justify-content: center;
-  transition: all 0.2s;
+  transition: all 0.2s ease;
   color: var(--text);
   outline: none;
 }
 .theme-btn:hover {
-  background: rgba(0, 0, 0, 0.05);
+  background: rgba(0, 0, 0, 0.04);
 }
 html.dark .theme-btn:hover {
-  background: rgba(255, 255, 255, 0.05);
+  background: rgba(255, 255, 255, 0.04);
+}
+.theme-btn.active {
+  background: var(--card);
+  border-color: var(--border);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.04);
+}
+html.dark .theme-btn.active {
+  background: var(--card);
+  border-color: var(--border);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
 }
 
 /* Categories Page Layout Overrides (Prevent Squishing) */
@@ -409,15 +431,19 @@ html.dark .version-badge {
   <a href="./categories.html" >دسته‌بندی‌ها</a>
   <a href="./attributes.html" >ویژگی‌ها</a>
   <a href="./products.html" >محصولات</a>
-  <button id="theme-toggle" class="theme-btn" aria-label="Toggle theme">🌙</button>
-  <span class="version-badge">v1.1.0</span>
+  <div class="theme-switch" role="group" aria-label="Theme selector">
+    <button class="theme-btn" data-theme="light" title="روشن">☀️</button>
+    <button class="theme-btn" data-theme="dark" title="تاریک">🌙</button>
+    <button class="theme-btn" data-theme="system" title="سیستم">🖥️</button>
+  </div>
+  <span class="version-badge">v1.1.1</span>
 </nav>
 <div class="container">
   
   <!-- Title Header -->
   <div style="margin-bottom: 24px; text-align: right;">
     <h1 style="font-size: 1.6rem; color: var(--text); margin: 0 0 8px 0;">پنل پایش داده و متادیتا</h1>
-    <div style="font-size: 0.85rem; color: var(--muted);">آخرین ساخت سراسری: 2026-06-08 00:44:37 (+03:30)<span class="rel-time" data-relative-time="2026-06-08T00:44:37+03:30"></span></div>
+    <div style="font-size: 0.85rem; color: var(--muted);">آخرین ساخت سراسری: 2026-06-08 00:49:21 (+03:30)<span class="rel-time" data-relative-time="2026-06-08T00:49:21+03:30"></span></div>
   </div>
 
   <!-- Top Operation Panels -->
@@ -458,7 +484,7 @@ html.dark .version-badge {
     <div style="font-size:1.8rem;font-weight:bold;color:var(--accent);margin:12px 0 8px 0;">86 <span style="font-size:0.9rem;font-weight:normal;color:var(--muted);">ردیف</span></div>
   </div>
   <div>
-    <div style="font-size:0.78rem;color:var(--muted);margin-bottom:12px;direction:rtl;" data-relative-time="2026-06-08T00:44:30+03:30">بروزرسانی: 2026-06-08 00:44:37 (+03:30)</div>
+    <div style="font-size:0.78rem;color:var(--muted);margin-bottom:12px;direction:rtl;" data-relative-time="2026-06-08T00:49:14+03:30">بروزرسانی: 2026-06-08 00:49:20 (+03:30)</div>
     <div style="display:flex;gap:8px;">
       <a href="./products.html" class="btn-secondary-outline">نمایش وب</a>
       <a href="./products.json" class="btn-secondary-outline" download>دانلود JSON</a>
@@ -470,7 +496,7 @@ html.dark .version-badge {
     <div style="font-size:1.8rem;font-weight:bold;color:var(--accent);margin:12px 0 8px 0;">42 <span style="font-size:0.9rem;font-weight:normal;color:var(--muted);">ردیف</span></div>
   </div>
   <div>
-    <div style="font-size:0.78rem;color:var(--muted);margin-bottom:12px;direction:rtl;" data-relative-time="2026-06-08T00:44:30+03:30">بروزرسانی: 2026-06-08 00:44:32 (+03:30)</div>
+    <div style="font-size:0.78rem;color:var(--muted);margin-bottom:12px;direction:rtl;" data-relative-time="2026-06-08T00:49:14+03:30">بروزرسانی: 2026-06-08 00:49:15 (+03:30)</div>
     <div style="display:flex;gap:8px;">
       <a href="./brands.html" class="btn-secondary-outline">نمایش وب</a>
       <a href="./brands.json" class="btn-secondary-outline" download>دانلود JSON</a>
@@ -482,7 +508,7 @@ html.dark .version-badge {
     <div style="font-size:1.8rem;font-weight:bold;color:var(--accent);margin:12px 0 8px 0;">14 <span style="font-size:0.9rem;font-weight:normal;color:var(--muted);">ردیف</span></div>
   </div>
   <div>
-    <div style="font-size:0.78rem;color:var(--muted);margin-bottom:12px;direction:rtl;" data-relative-time="2026-06-08T00:44:30+03:30">بروزرسانی: 2026-06-08 00:44:34 (+03:30)</div>
+    <div style="font-size:0.78rem;color:var(--muted);margin-bottom:12px;direction:rtl;" data-relative-time="2026-06-08T00:49:14+03:30">بروزرسانی: 2026-06-08 00:49:18 (+03:30)</div>
     <div style="display:flex;gap:8px;">
       <a href="./categories.html" class="btn-secondary-outline">نمایش وب</a>
       <a href="./categories.json" class="btn-secondary-outline" download>دانلود JSON</a>
@@ -494,7 +520,7 @@ html.dark .version-badge {
     <div style="font-size:1.8rem;font-weight:bold;color:var(--accent);margin:12px 0 8px 0;">105 <span style="font-size:0.9rem;font-weight:normal;color:var(--muted);">ردیف</span></div>
   </div>
   <div>
-    <div style="font-size:0.78rem;color:var(--muted);margin-bottom:12px;direction:rtl;" data-relative-time="2026-06-08T00:44:30+03:30">بروزرسانی: 2026-06-08 00:44:35 (+03:30)</div>
+    <div style="font-size:0.78rem;color:var(--muted);margin-bottom:12px;direction:rtl;" data-relative-time="2026-06-08T00:49:14+03:30">بروزرسانی: 2026-06-08 00:49:19 (+03:30)</div>
     <div style="display:flex;gap:8px;">
       <a href="./attributes.html" class="btn-secondary-outline">نمایش وب</a>
       <a href="./attributes.json" class="btn-secondary-outline" download>دانلود JSON</a>
@@ -506,7 +532,7 @@ html.dark .version-badge {
     <div style="font-size:1.8rem;font-weight:bold;color:var(--accent);margin:12px 0 8px 0;">6 <span style="font-size:0.9rem;font-weight:normal;color:var(--muted);">ردیف</span></div>
   </div>
   <div>
-    <div style="font-size:0.78rem;color:var(--muted);margin-bottom:12px;direction:rtl;" data-relative-time="2026-06-08T00:44:30+03:30">بروزرسانی: 2026-06-08 00:44:33 (+03:30)</div>
+    <div style="font-size:0.78rem;color:var(--muted);margin-bottom:12px;direction:rtl;" data-relative-time="2026-06-08T00:49:14+03:30">بروزرسانی: 2026-06-08 00:49:16 (+03:30)</div>
     <div style="display:flex;gap:8px;">
       <a href="./tags.html" class="btn-secondary-outline">نمایش وب</a>
       <a href="./tags.json" class="btn-secondary-outline" download>دانلود JSON</a>
@@ -754,22 +780,39 @@ function startPolling(token) {
     update();
   }
   
-  // Theme Toggle Handler
-  const toggle = document.getElementById('theme-toggle');
-  if (toggle) {
-    const updateIcon = (theme) => {
-      const isDark = theme === 'dark' || (theme === 'system' && window.matchMedia('(prefers-color-scheme: dark)').matches);
-      toggle.innerHTML = isDark ? '☀️' : '🌙';
-    };
+  // Segmented Theme Selector Handler
+  const buttons = document.querySelectorAll('.theme-switch .theme-btn');
+  if (buttons.length) {
     const currentTheme = localStorage.getItem('theme') || 'system';
-    updateIcon(currentTheme);
-    toggle.addEventListener('click', () => {
-      const isDark = document.documentElement.classList.contains('dark');
-      const newTheme = isDark ? 'light' : 'dark';
-      document.documentElement.classList.toggle('dark', !isDark);
-      document.documentElement.classList.toggle('light', isDark);
-      localStorage.setItem('theme', newTheme);
-      updateIcon(newTheme);
+    
+    buttons.forEach(btn => {
+      if (btn.getAttribute('data-theme') === currentTheme) {
+        btn.classList.add('active');
+      }
+    });
+
+    const setTheme = (theme) => {
+      localStorage.setItem('theme', theme);
+      const isDark = theme === 'dark' || (theme === 'system' && window.matchMedia('(prefers-color-scheme: dark)').matches);
+      document.documentElement.classList.toggle('dark', isDark);
+      document.documentElement.classList.toggle('light', !isDark);
+      
+      buttons.forEach(btn => {
+        btn.classList.toggle('active', btn.getAttribute('data-theme') === theme);
+      });
+    };
+
+    buttons.forEach(btn => {
+      btn.addEventListener('click', () => {
+        setTheme(btn.getAttribute('data-theme'));
+      });
+    });
+
+    window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', e => {
+      if ((localStorage.getItem('theme') || 'system') === 'system') {
+        document.documentElement.classList.toggle('dark', e.matches);
+        document.documentElement.classList.toggle('light', !e.matches);
+      }
     });
   }
 })();
