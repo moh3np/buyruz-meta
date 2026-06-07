@@ -24,7 +24,7 @@ const ENDPOINTS = [
   'new_products' => 880069675,
 ];
 const TAXONOMY_JSON = 'taxonomy.json';
-const VERSION = '1.1.2';
+const VERSION = '1.1.3';
 
 // خروجی‌ها در همین دایرکتوری ساخته می‌شوند
 const OUTPUT_DIR = __DIR__;
@@ -804,25 +804,53 @@ th:nth-child(3), td:nth-child(3){
 }
 
 /* Custom styling override for products and new_products tables */
+.tblwrap-products table,
+.tblwrap-new_products table {
+  min-width: 1600px;
+}
+.tblwrap-products th, .tblwrap-products td,
+.tblwrap-new_products th, .tblwrap-new_products td {
+  white-space: normal;
+}
 .tblwrap-products th:nth-child(1), .tblwrap-products td:nth-child(1),
 .tblwrap-new_products th:nth-child(1), .tblwrap-new_products td:nth-child(1) {
-  width:auto; min-width:240px; max-width:none;
-  white-space:normal; text-align:right; direction:rtl; font-variant-numeric:normal;
+  min-width: 100px;
+  text-align: center;
+  direction: ltr;
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
 }
 .tblwrap-products th:nth-child(2), .tblwrap-products td:nth-child(2),
 .tblwrap-new_products th:nth-child(2), .tblwrap-new_products td:nth-child(2) {
-  width:auto; min-width:180px; max-width:none;
-  white-space:normal; text-align:right; direction:rtl;
+  min-width: 280px;
 }
 .tblwrap-products th:nth-child(3), .tblwrap-products td:nth-child(3),
 .tblwrap-new_products th:nth-child(3), .tblwrap-new_products td:nth-child(3) {
-  width:auto; min-width:150px; max-width:none;
-  white-space:normal; text-align:right; direction:rtl;
+  min-width: 180px;
 }
 .tblwrap-products th:nth-child(4), .tblwrap-products td:nth-child(4),
 .tblwrap-new_products th:nth-child(4), .tblwrap-new_products td:nth-child(4) {
-  width:120px; min-width:120px;
-  white-space:nowrap; text-align:center; direction:ltr; font-variant-numeric:tabular-nums;
+  min-width: 100px;
+  text-align: center;
+  direction: ltr;
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+}
+.tblwrap-products th:nth-child(5), .tblwrap-products td:nth-child(5),
+.tblwrap-new_products th:nth-child(5), .tblwrap-new_products td:nth-child(5) {
+  min-width: 120px;
+}
+.tblwrap-products th:nth-child(6), .tblwrap-products td:nth-child(6),
+.tblwrap-new_products th:nth-child(6), .tblwrap-new_products td:nth-child(6) {
+  min-width: 250px;
+}
+.tblwrap-products th:nth-child(7), .tblwrap-products td:nth-child(7),
+.tblwrap-new_products th:nth-child(7), .tblwrap-new_products td:nth-child(7) {
+  min-width: 280px;
+}
+.tblwrap-products th:nth-child(8), .tblwrap-products td:nth-child(8),
+.tblwrap-new_products th:nth-child(8), .tblwrap-new_products td:nth-child(8) {
+  min-width: 320px;
 }
 
 /* =========================================
