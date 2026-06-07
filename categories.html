@@ -100,20 +100,24 @@ th:nth-child(3), td:nth-child(3){
   th:nth-child(3), td:nth-child(3){min-width:200px}
 }
 
-/* Custom styling override for products table */
-.tblwrap-products th:nth-child(1), .tblwrap-products td:nth-child(1){
+/* Custom styling override for products and new_products tables */
+.tblwrap-products th:nth-child(1), .tblwrap-products td:nth-child(1),
+.tblwrap-new_products th:nth-child(1), .tblwrap-new_products td:nth-child(1) {
   width:auto; min-width:240px; max-width:none;
   white-space:normal; text-align:right; direction:rtl; font-variant-numeric:normal;
 }
-.tblwrap-products th:nth-child(2), .tblwrap-products td:nth-child(2){
+.tblwrap-products th:nth-child(2), .tblwrap-products td:nth-child(2),
+.tblwrap-new_products th:nth-child(2), .tblwrap-new_products td:nth-child(2) {
   width:auto; min-width:180px; max-width:none;
   white-space:normal; text-align:right; direction:rtl;
 }
-.tblwrap-products th:nth-child(3), .tblwrap-products td:nth-child(3){
+.tblwrap-products th:nth-child(3), .tblwrap-products td:nth-child(3),
+.tblwrap-new_products th:nth-child(3), .tblwrap-new_products td:nth-child(3) {
   width:auto; min-width:150px; max-width:none;
   white-space:normal; text-align:right; direction:rtl;
 }
-.tblwrap-products th:nth-child(4), .tblwrap-products td:nth-child(4){
+.tblwrap-products th:nth-child(4), .tblwrap-products td:nth-child(4),
+.tblwrap-new_products th:nth-child(4), .tblwrap-new_products td:nth-child(4) {
   width:120px; min-width:120px;
   white-space:nowrap; text-align:center; direction:ltr; font-variant-numeric:tabular-nums;
 }
@@ -431,18 +435,19 @@ html.dark .version-badge {
   <a href="./categories.html" class="active">دسته‌بندی‌ها</a>
   <a href="./attributes.html" >ویژگی‌ها</a>
   <a href="./products.html" >محصولات</a>
+  <a href="./new_products.html" >محصولات جدید</a>
   <div class="theme-switch" role="group" aria-label="Theme selector">
     <button class="theme-btn" data-theme="light" title="روشن">☀️</button>
     <button class="theme-btn" data-theme="dark" title="تاریک">🌙</button>
     <button class="theme-btn" data-theme="system" title="سیستم">🖥️</button>
   </div>
-  <span class="version-badge">v1.1.1</span>
+  <span class="version-badge">v1.1.2</span>
 </nav>
 <div class="container">
   <div class="card">
     <div class="header">
       <h1>لیست دسته‌بندی‌ها <span class="badge">14 ردیف</span></h1>
-      <div class="count">بروزرسانی: 2026-06-08 00:50:34 (+03:30)<span class="rel-time" data-relative-time="2026-06-08T00:50:33+03:30"></span></div>
+      <div class="count">بروزرسانی: 2026-06-08 01:29:23 (+03:30)<span class="rel-time" data-relative-time="2026-06-08T01:29:19+03:30"></span></div>
     </div>
     <div class="tblwrap tblwrap-categories" role="region" aria-label="snapshot">
       <table>

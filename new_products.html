@@ -1,0 +1,547 @@
+<!doctype html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="robots" content="noindex, nofollow">
+<meta http-equiv="Cache-Control" content="no-store, no-cache, must-revalidate" />
+<meta http-equiv="Pragma" content="no-cache" />
+<meta http-equiv="Expires" content="0" />
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA2NCA2NCI+CiAgPGRlZnM+CiAgICA8bGluZWFyR3JhZGllbnQgaWQ9ImciIHgxPSIwIiB5MT0iNjQiIHgyPSI2NCIgeTI9IjAiIGdyYWRpZW50VW5pdHM9InVzZXJTcGFjZU9uVXNlIj4KICAgICAgPHN0b3Agb2Zmc2V0PSIwIiBzdG9wLWNvbG9yPSIjMGVhNWU5Ii8+CiAgICAgIDxzdG9wIG9mZnNldD0iMSIgc3RvcC1jb2xvcj0iIzFmMjkzNyIvPgogICAgPC9saW5lYXJHcmFkaWVudD4KICA8L2RlZnM+CiAgPHJlY3Qgd2lkdGg9IjY0IiBoZWlnaHQ9IjY0IiByeD0iMTQiIHJ5PSIxNCIgZmlsbD0idXJsKCNnKSIvPgogIDxwYXRoIGZpbGw9IiNmZmZmZmYiIGQ9Ik0yMCAxNmgxNGM2IDAgMTAgNCAxMCA5YzAgNC0yLjIgNi44LTUgOGMzLjIgMSA1IDQgNSA3LjhjMCA2LTQgOS4yLTEwLjggOS4ySDIwVjE2em04IDEzLjhoNmMyIDAgNC0xLjYgNC00cy0yLTQtNC00aC02djh6bTAgMTguNGg3YzIuNiAwIDQuNS0xLjggNC41LTQuNXMtMS45LTQuNS00LjUtNC41aC03djl6Ii8+CiAgPHJlY3QgeD0iMTYuNSIgeT0iMTYuNSIgd2lkdGg9IjMxIiBoZWlnaHQ9IjMxIiByeD0iOCIgcnk9IjgiIGZpbGw9Im5vbmUiIHN0cm9rZT0icmdiYSgyNTUsMjU1LDI1NSwwLjE4KSIgc3Ryb2tlLXdpZHRoPSIyIi8+Cjwvc3ZnPgo=">
+<title>لیست محصولات جدید</title>
+<style>:root, html.light {
+  --bg:#f7f8fb;--card:#fff;--text:#101114;--muted:#6b7280;--border:#e6e8ee;
+  --brand:#1f2937;--accent:#0ea5e9;--accent-weak:#e0f2fe;
+}
+html.dark {
+  --bg:#090d16;--card:#111726;--text:#f3f4f6;--muted:#9ca3af;--border:#1f293d;
+  --brand:#6366f1;--accent:#06b6d4;--accent-weak:rgba(6,182,212,0.08);
+}
+*{box-sizing:border-box}
+html,body{
+  margin:0;padding:0;
+  background-color:var(--bg);
+  color:var(--text);
+  font-family:Vazirmatn,IRANSans,Segoe UI,Arial,sans-serif;
+  transition:background-color 0.15s ease, color 0.15s ease, border-color 0.15s ease;
+}
+a{color:var(--brand);text-decoration:none}
+.container{max-width:1120px;margin:24px auto;padding:0 16px}
+.card{background:var(--card);border:1px solid var(--border);border-radius:16px;box-shadow:0 2px 10px rgba(0,0,0,.04);overflow:hidden}
+.header{padding:14px 18px;border-bottom:1px solid var(--border);display:flex;flex-wrap:wrap;gap:12px;align-items:center;justify-content:space-between}
+h1{font-size:1.1rem;margin:0}
+.count,.small{color:var(--muted);font-size:.92rem}
+.rel-time{margin-right:.4rem;color:var(--muted);font-size:.85em}
+.badge{display:inline-block;padding:.15rem .55rem;border-radius:999px;border:1px solid var(--border);font-size:.8rem;background:#fff;margin-right:.4rem}
+
+/* top nav */
+.topnav {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(12px);
+  padding: 10px 12px;
+  border-bottom: 1px solid var(--border);
+}
+.topnav a {
+  color: var(--muted);
+  font-size: 0.9rem;
+  padding: 8px 12px;
+  border-radius: 10px;
+  transition: all 0.2s;
+  border: 1px solid transparent;
+}
+.topnav a:hover {
+  background: rgba(0, 0, 0, 0.03);
+  color: var(--text);
+}
+.topnav a.active {
+  color: var(--accent);
+  background: var(--accent-weak);
+  border-color: var(--accent);
+}
+
+/* table */
+.tblwrap{overflow:auto;max-height:calc(100vh - 260px)}
+table{width:100%;border-collapse:separate;border-spacing:0;table-layout:auto}
+thead th{position:sticky;top:0;background:#fafafa;font-weight:700;border-bottom:1px solid var(--border);z-index:1}
+th,td{padding:10px 12px;text-align:right;font-size:.95rem;word-break:break-word;white-space:pre-wrap;vertical-align:top}
+tbody tr:nth-child(odd){background:#fff}
+tbody tr:nth-child(even){background:#fcfcff}
+tbody tr:hover{background:#f8fbff}
+
+/* ✅ بهبود سه ستون اول */
+th:nth-child(1), td:nth-child(1){
+  width:96px; min-width:96px; max-width:120px;
+  white-space:nowrap; text-align:center; direction:ltr; font-variant-numeric:tabular-nums;
+}
+th:nth-child(2), td:nth-child(2){
+  min-width:180px; white-space:nowrap;
+}
+th:nth-child(3), td:nth-child(3){
+  min-width:240px; white-space:nowrap;
+}
+
+/* sections */
+.section{padding:16px 18px}
+.guide{padding:16px 18px}
+.guide h2,.guide h3{margin:.2rem 0 .6rem}
+.guide ul{margin:.2rem 0 1rem 0;line-height:1.9}
+.note{margin:.5rem 0;padding:.6rem .8rem;background:#fff;border:1px dashed var(--border);border-radius:12px}
+
+/* responsive */
+@media (max-width:640px){
+  .tblwrap{max-height:none}
+  th:nth-child(2), td:nth-child(2){min-width:160px}
+  th:nth-child(3), td:nth-child(3){min-width:200px}
+}
+
+/* Custom styling override for products and new_products tables */
+.tblwrap-products th:nth-child(1), .tblwrap-products td:nth-child(1),
+.tblwrap-new_products th:nth-child(1), .tblwrap-new_products td:nth-child(1) {
+  width:auto; min-width:240px; max-width:none;
+  white-space:normal; text-align:right; direction:rtl; font-variant-numeric:normal;
+}
+.tblwrap-products th:nth-child(2), .tblwrap-products td:nth-child(2),
+.tblwrap-new_products th:nth-child(2), .tblwrap-new_products td:nth-child(2) {
+  width:auto; min-width:180px; max-width:none;
+  white-space:normal; text-align:right; direction:rtl;
+}
+.tblwrap-products th:nth-child(3), .tblwrap-products td:nth-child(3),
+.tblwrap-new_products th:nth-child(3), .tblwrap-new_products td:nth-child(3) {
+  width:auto; min-width:150px; max-width:none;
+  white-space:normal; text-align:right; direction:rtl;
+}
+.tblwrap-products th:nth-child(4), .tblwrap-products td:nth-child(4),
+.tblwrap-new_products th:nth-child(4), .tblwrap-new_products td:nth-child(4) {
+  width:120px; min-width:120px;
+  white-space:nowrap; text-align:center; direction:ltr; font-variant-numeric:tabular-nums;
+}
+
+/* =========================================
+   Dashboard Specific Styles (Modern Minimal Dark Mode)
+   ========================================= */
+/* =========================================
+   Dashboard Specific Styles (Modern Minimal)
+   ========================================= */
+body.index-page {
+  background-color: var(--bg);
+  color: var(--text);
+}
+body.index-page .dashboard-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 20px;
+  margin-top: 24px;
+}
+body.index-page .card-stat {
+  padding: 24px;
+  border-radius: 16px;
+  background: var(--card);
+  border: 1px solid var(--border);
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 200px;
+}
+body.index-page .card-stat:hover {
+  transform: translateY(-4px);
+  border-color: var(--accent);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.04);
+}
+html.dark body.index-page .card-stat:hover {
+  border-color: rgba(6, 182, 212, 0.4);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.25);
+}
+body.index-page .btn-sync {
+  background: var(--accent);
+  color: var(--card);
+  border: none;
+  padding: 12px 24px;
+  border-radius: 10px;
+  font-weight: 700;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  transition: all 0.2s ease;
+  font-family: inherit;
+  font-size: 0.9rem;
+}
+body.index-page .btn-sync:hover {
+  filter: brightness(0.95);
+  box-shadow: 0 4px 12px var(--accent-weak);
+}
+body.index-page .btn-sync:active {
+  transform: scale(0.98);
+}
+body.index-page .btn-secondary-outline {
+  background: transparent;
+  color: var(--text);
+  border: 1px solid var(--border);
+  padding: 8px 16px;
+  border-radius: 8px;
+  font-size: 0.82rem;
+  flex: 1;
+  text-align: center;
+  transition: all 0.2s;
+  text-decoration: none;
+}
+body.index-page .btn-secondary-outline:hover {
+  background: rgba(0, 0, 0, 0.02);
+  border-color: var(--muted);
+}
+html.dark body.index-page .btn-secondary-outline:hover {
+  background: rgba(255, 255, 255, 0.03);
+}
+body.index-page .modal {
+  display: none;
+  position: fixed;
+  top: 0; left: 0; width: 100%; height: 100%;
+  background: rgba(9, 13, 22, 0.8);
+  backdrop-filter: blur(8px);
+  z-index: 100;
+  align-items: center;
+  justify-content: center;
+}
+body.index-page .modal-content {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 24px;
+  width: 90%;
+  max-width: 440px;
+  text-align: right;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.1);
+  animation: modalFadeIn 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+@keyframes modalFadeIn {
+  from { opacity: 0; transform: translateY(-20px) scale(0.95); }
+  to { opacity: 1; transform: translateY(0) scale(1); }
+}
+body.index-page .modal-title {
+  margin-top: 0;
+  font-size: 1.25rem;
+  color: var(--text);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: 600;
+}
+body.index-page .modal-input {
+  width: 100%;
+  padding: 12px;
+  border-radius: 8px;
+  border: 1px solid var(--border);
+  background: var(--bg);
+  color: var(--text);
+  font-family: inherit;
+  margin: 16px 0;
+  direction: ltr;
+  outline: none;
+  transition: border-color 0.2s;
+}
+body.index-page .modal-input:focus {
+  border-color: var(--accent);
+}
+body.index-page .modal-actions {
+  display: flex;
+  gap: 10px;
+  justify-content: flex-end;
+  margin-top: 20px;
+}
+body.index-page .btn-primary {
+  background: var(--brand);
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: bold;
+  font-family: inherit;
+  transition: background 0.2s;
+}
+body.index-page .btn-primary:hover {
+  filter: brightness(0.9);
+}
+body.index-page .btn-secondary {
+  background: transparent;
+  color: var(--muted);
+  border: 1px solid var(--border);
+  padding: 10px 20px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-family: inherit;
+  transition: all 0.2s;
+}
+body.index-page .btn-secondary:hover {
+  background: rgba(0, 0, 0, 0.02);
+  border-color: var(--muted);
+}
+html.dark body.index-page .btn-secondary:hover {
+  background: rgba(255, 255, 255, 0.03);
+}
+body.index-page .status-box {
+  margin-top: 16px;
+  padding: 12px 16px;
+  border-radius: 10px;
+  background: var(--accent-weak);
+  border: 1px solid var(--border);
+  display: none;
+  align-items: center;
+  gap: 12px;
+  font-size: 0.85rem;
+  color: var(--accent);
+  animation: modalFadeIn 0.3s ease;
+}
+body.index-page .spinner {
+  width: 18px;
+  height: 18px;
+  border: 2px solid var(--accent-weak);
+  border-top-color: var(--accent);
+  border-radius: 50%;
+  animation: spin 1s infinite linear;
+  flex-shrink: 0;
+}
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+@media (max-width: 768px) {
+  body.index-page .top-grid {
+    grid-template-columns: 1fr !important;
+  }
+}
+
+/* Global Dark Theme Overrides */
+html.dark .topnav {
+  background: rgba(17, 23, 38, 0.85);
+}
+html.dark .topnav a:hover {
+  background: rgba(255, 255, 255, 0.03);
+  color: #fff;
+}
+html.dark thead th {
+  background: #111726;
+  color: #fff;
+  border-bottom: 1px solid var(--border);
+}
+html.dark tbody tr:nth-child(odd){background:#111726}
+html.dark tbody tr:nth-child(even){background:#161d2f}
+html.dark tbody tr:hover{background:#1e293d}
+html.dark .badge {background: #1e293d; color: #f3f4f6; border-color: var(--border);}
+html.dark .note {background: #161d2f; border-color: var(--border);}
+html.dark .card {background: var(--card); border-color: var(--border); box-shadow: 0 4px 20px rgba(0,0,0,0.4);}
+
+/* Theme Switcher Segmented Control */
+.theme-switch {
+  margin-right: auto;
+  display: inline-flex;
+  align-items: center;
+  background: rgba(0, 0, 0, 0.03);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 2px;
+  gap: 2px;
+}
+html.dark .theme-switch {
+  background: rgba(255, 255, 255, 0.03);
+}
+.theme-btn {
+  background: transparent;
+  border: 1px solid transparent;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  padding: 5px 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+  color: var(--text);
+  outline: none;
+}
+.theme-btn:hover {
+  background: rgba(0, 0, 0, 0.04);
+}
+html.dark .theme-btn:hover {
+  background: rgba(255, 255, 255, 0.04);
+}
+.theme-btn.active {
+  background: var(--card);
+  border-color: var(--border);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.04);
+}
+html.dark .theme-btn.active {
+  background: var(--card);
+  border-color: var(--border);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* Categories Page Layout Overrides (Prevent Squishing) */
+.tblwrap-categories table {
+  min-width: 1500px;
+}
+.tblwrap-categories th, .tblwrap-categories td {
+  white-space: nowrap;
+}
+.tblwrap-categories td:nth-child(5) {
+  white-space: normal;
+  min-width: 260px;
+}
+.tblwrap-categories td:nth-child(7) {
+  white-space: normal;
+  min-width: 280px;
+}
+.tblwrap-categories td:nth-child(8), .tblwrap-categories td:nth-child(9), .tblwrap-categories td:nth-child(10) {
+  white-space: normal;
+  min-width: 220px;
+}
+
+/* Version Badge */
+.version-badge {
+  font-size: 0.72rem;
+  color: var(--muted);
+  align-self: center;
+  user-select: none;
+  direction: ltr;
+  padding: 3px 6px;
+  background: rgba(0, 0, 0, 0.03);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  margin-right: 8px;
+}
+html.dark .version-badge {
+  background: rgba(255, 255, 255, 0.03);
+}</style>
+<script>
+(function() {
+  const theme = localStorage.getItem('theme') || 'system';
+  const isDark = theme === 'dark' || (theme === 'system' && window.matchMedia('(prefers-color-scheme: dark)').matches);
+  document.documentElement.classList.toggle('dark', isDark);
+  document.documentElement.classList.toggle('light', !isDark);
+})();
+</script>
+</head>
+<body>
+<nav class="topnav" aria-label="primary">
+  <a href="./index.html" >داشبورد</a>
+  <a href="./brands.html" >برندها</a>
+  <a href="./tags.html" >تگ‌ها</a>
+  <a href="./categories.html" >دسته‌بندی‌ها</a>
+  <a href="./attributes.html" >ویژگی‌ها</a>
+  <a href="./products.html" >محصولات</a>
+  <a href="./new_products.html" class="active">محصولات جدید</a>
+  <div class="theme-switch" role="group" aria-label="Theme selector">
+    <button class="theme-btn" data-theme="light" title="روشن">☀️</button>
+    <button class="theme-btn" data-theme="dark" title="تاریک">🌙</button>
+    <button class="theme-btn" data-theme="system" title="سیستم">🖥️</button>
+  </div>
+  <span class="version-badge">v1.1.2</span>
+</nav>
+<div class="container">
+  <div class="card">
+    <div class="header">
+      <h1>لیست محصولات جدید <span class="badge">253 ردیف</span></h1>
+      <div class="count">بروزرسانی: 2026-06-08 01:29:27 (+03:30)<span class="rel-time" data-relative-time="2026-06-08T01:29:19+03:30"></span></div>
+    </div>
+    <div class="tblwrap tblwrap-new_products" role="region" aria-label="snapshot">
+      <table>
+        <thead><tr><th>Product
+ID (Woo)</th><th>نام محصول</th><th>نام کوتاه</th><th>کد برند</th><th>نام برند</th><th>ai_core_entity</th><th>ai_search_intent</th><th>ai_anchor_pool</th></tr></thead>
+        <tbody>
+          <tr><td></td><td>بازی رومیزی نامه‌های ارواج (Ghost Letters) دهکده بردگیم</td><td>نامه‌های ارواح دهکده</td><td>4491</td><td>دهکده بردگیم</td><td></td><td></td><td></td></tr><tr><td></td><td>بازی فکری شبکه نیرو (Power Grid) دهکده بردگیم</td><td>شبکه نیرو دهکده</td><td>4491</td><td>دهکده بردگیم</td><td></td><td></td><td></td></tr><tr><td></td><td>بازی رومیزی طبقه اشرافی (High Society) دهکده بردگیم</td><td>طبقه اشرافی دهکده</td><td>4491</td><td>دهکده بردگیم</td><td></td><td></td><td></td></tr><tr><td></td><td>پرونده معمایی اتاق پنهان دهکده بردگیم</td><td>اتاق پنهان دهکده</td><td>4491</td><td>دهکده بردگیم</td><td></td><td></td><td></td></tr><tr><td></td><td>پرونده معمایی بلک بریم ۲ بازگشت ریجر (Ragers Return) دهکده بردگیم</td><td>بلک بریم ۲ دهکده</td><td>4491</td><td>دهکده بردگیم</td><td></td><td></td><td></td></tr><tr><td></td><td>بازی فکری مسیر بزرگ غرب آرژانتین (Great Western Trail) دهکده بردگیم</td><td>مسیر بزرگ غرب آرژانتین دهکده</td><td>4491</td><td>دهکده بردگیم</td><td></td><td></td><td></td></tr><tr><td></td><td>پرونده جنایی نفرین دهکده بردگیم</td><td>نفرین دهکده</td><td>4491</td><td>دهکده بردگیم</td><td></td><td></td><td></td></tr><tr><td></td><td>پرونده معمایی شمشیر آخرین گلادیاتور دهکده بردگیم</td><td>شمشیر آخرین گلادیاتور دهکده</td><td>4491</td><td>دهکده بردگیم</td><td></td><td></td><td></td></tr><tr><td></td><td>بازی ایرانی شیر مرغ</td><td>شیر مرغ رومیز</td><td>4495</td><td>رومیز</td><td></td><td></td><td></td></tr><tr><td>49369</td><td>بازی فکری پازل ورقی 40 قطعه دسته‌دار (Handled 40-Piece Tray Puzzle) | نسخه اصلی – داکو</td><td>پازل ورقی ۴۰ قطعه داکو</td><td>4659</td><td>داکو</td><td></td><td></td><td></td></tr><tr><td></td><td>پازل سه در یک کاتامینو</td><td>پازل ۳ در ۱ کاتامینو</td><td></td><td></td><td></td><td></td><td></td></tr><tr><td></td><td>جورچین برجسته انگشتی</td><td>جورچین برجسته انگشتی</td><td></td><td></td><td></td><td></td><td></td></tr><tr><td></td><td>جورچین برجسته زبان انگلیسی چوبی</td><td>جورچین برجسته انگلیسی چوبی</td><td></td><td></td><td></td><td></td><td></td></tr><tr><td></td><td>جورچین مربع برجسته کاتامینو</td><td>جورچین مربع برجسته کاتامینو</td><td></td><td></td><td></td><td></td><td></td></tr><tr><td></td><td>بازی فکری هوشکل روپک</td><td>هوشکل روپک</td><td></td><td></td><td></td><td></td><td></td></tr><tr><td></td><td>بازی مهره‌های همرنگ بازی‌پژوه</td><td>مهره‌های همرنگ بازی‌پژوه</td><td></td><td></td><td></td><td></td><td></td></tr><tr><td></td><td>بازی ایرانی تهران 1410 (Chinatown) بردباز</td><td>تهران ۱۴۱۰ بردباز</td><td></td><td></td><td></td><td></td><td></td></tr><tr><td></td><td>بازی فکری رینگ رینگ سپتا</td><td>رینگ رینگ سپتا</td><td>4497</td><td>سپتا</td><td></td><td></td><td></td></tr><tr><td></td><td>بازی آموزشی رینگا زنگو</td><td>رینگا زنگو</td><td></td><td></td><td></td><td></td><td></td></tr><tr><td></td><td>بازی بسکتبال پایه دار پرشین</td><td>بسکتبال پایه‌دار پرشین</td><td>4486</td><td>پرشین</td><td></td><td></td><td></td></tr><tr><td></td><td>بازی ساختنی بلوک‌های خانه سازی ۴۸ تکه رد تویز</td><td>بلوک خانه‌سازی ۴۸ تکه ردتویز</td><td></td><td></td><td></td><td></td><td></td></tr><tr><td></td><td>بازی فکر و بکر مستر مایند</td><td>فکر و بکر مسترمایند</td><td></td><td></td><td></td><td></td><td></td></tr><tr><td></td><td>بازی فرفره چوبی</td><td>فرفره چوبی</td><td></td><td></td><td></td><td></td><td></td></tr><tr><td></td><td>بازی فکری روبی (ROBEE) فوتبالیست</td><td>روبی فوتبالیست</td><td>4494</td><td>روبی</td><td></td><td></td><td></td></tr><tr><td></td><td>کاتامینو ساده چوبی</td><td>کاتامینو ساده چوبی</td><td></td><td></td><td></td><td></td><td></td></tr><tr><td></td><td>شن بهداشتی کودک ستاره</td><td>شن بهداشتی کودک ستاره</td><td></td><td></td><td></td><td></td><td></td></tr><tr><td>49378</td><td>بازی فکری مموری گیم میوه‌ها (Fruits Game - Memory Game) | مناسب بالای 3 سال – فرفره‌های رنگی پویا</td><td>مموری گیم میوه‌ها فرفره‌های رنگی</td><td></td><td></td><td></td><td></td><td></td></tr><tr><td></td><td>بازی فکری مونپولی ارباب حلقه‌ها فکرآوران</td><td>مونوپولی ارباب حلقه‌ها فکرآوران</td><td>4499</td><td>فکرآوران</td><td></td><td></td><td></td></tr><tr><td></td><td>مونوپولی صادراتی تی تویز</td><td>مونوپولی صادراتی تی‌تویز</td><td></td><td></td><td></td><td></td><td></td></tr><tr><td></td><td>بازی فکری چیدمان مکعب تویوتو</td><td>چیدمان مکعب تویوتو</td><td>4488</td><td>تویوتو</td><td></td><td></td><td></td></tr><tr><td></td><td>بازی فکری سودوکو رنگی سایان</td><td>سودوکو رنگی سایان</td><td></td><td></td><td></td><td></td><td></td></tr><tr><td></td><td>بازی فکری سودوکو اعداد سایان</td><td>سودوکو اعداد سایان</td><td></td><td></td><td></td><td></td><td></td></tr><tr><td></td><td>قلم حکاکی ایپکا</td><td>قلم حکاکی ایپکا</td><td></td><td></td><td></td><td></td><td></td></tr><tr><td></td><td>بال بالانس</td><td>بال بالانس</td><td></td><td></td><td></td><td></td><td></td></tr><tr><td></td><td>چوب سازه</td><td>چوب سازه</td><td></td><td></td><td></td><td></td><td></td></tr><tr><td></td><td>دالیز سالار هوپا</td><td>دالیز سالار هوپا</td><td>4508</td><td>هوپا</td><td></td><td></td><td></td></tr><tr><td></td><td>یه تار سیبیل</td><td>یه تار سیبیل</td><td></td><td></td><td></td><td></td><td></td></tr><tr><td></td><td>گیربکس ۱۰۰ قطعه</td><td>گیربکس ۱۰۰ قطعه</td><td></td><td></td><td></td><td></td><td></td></tr><tr><td></td><td>کلیک جرثقیل امداد</td><td>کلیک جرثقیل امداد</td><td></td><td></td><td></td><td></td><td></td></tr><tr><td></td><td>مونپولی مهره فلزی طهرون</td><td>مونوپولی مهره فلزی طهرون</td><td></td><td></td><td></td><td></td><td></td></tr><tr><td></td><td>آشیتکس ۲۰۰ گلدونه</td><td>آرشیتکس ۲۰۰ گلدونه</td><td></td><td></td><td></td><td></td><td></td></tr><tr><td></td><td>آرشیتکس ۳۰۰ گلدونه</td><td>آرشیتکس ۳۰۰ گلدونه</td><td></td><td></td><td></td><td></td><td></td></tr><tr><td></td><td>آرشیتکس ۴۰۰ گلدونه</td><td>آرشیتکس ۴۰۰ گلدونه</td><td></td><td></td><td></td><td></td><td></td></tr><tr><td></td><td>مگنت آجر بازی تیپت دو ۸۱ قطعه</td><td>مگنت آجر تیپ ۲ (۸۱ قطعه)</td><td></td><td></td><td></td><td></td><td></td></tr><tr><td></td><td>لپف حرفه‌ای</td><td>لپف حرفه‌ای</td><td></td><td></td><td></td><td></td><td></td></tr><tr><td></td><td>بریکس ۴۰ عددی جعبه چوبی</td><td>بریکس ۴۰ عددی جعبه چوبی</td><td></td><td></td><td></td><td></td><td></td></tr><tr><td></td><td>اسکالی وگز</td><td>اسکالی وگز</td><td></td><td></td><td></td><td></td><td></td></tr><tr><td></td><td>بلیتس کریگ</td><td>بلیتس کریگ</td><td></td><td></td><td></td><td></td><td></td></tr><tr><td></td><td>بریک و دوز چوبی جعبه مقوایی</td><td>بریک و دوز جعبه مقوایی</td><td></td><td></td><td></td><td></td><td></td></tr><tr><td></td><td>دسیسه</td><td>دسیسه</td><td>4492</td><td>دورهمی جواهری</td><td></td><td></td><td></td></tr><tr><td></td><td>برج تعادل سپتا</td><td>برج تعادل سپتا</td><td>4497</td><td>سپتا</td><td></td><td></td><td></td></tr><tr><td></td><td>توازن سپتا</td><td>توازن سپتا</td><td>4497</td><td>سپتا</td><td></td><td></td><td></td></tr><tr><td></td><td>زعفرانیتو</td><td>زعفرانیتو</td><td></td><td></td><td></td><td></td><td></td></tr><tr><td></td><td>جوهری</td><td>جوهری</td><td></td><td></td><td></td><td></td><td></td></tr><tr><td></td><td>گیربکس ۳۰ قطعه</td><td>گیربکس ۳۰ قطعه</td><td></td><td></td><td></td><td></td><td></td></tr><tr><td></td><td>گربه‌های انفجاری پلاس فندقچه</td><td>گربه‌های انفجاری پلاس فندقچه</td><td></td><td></td><td></td><td></td><td></td></tr><tr><td></td><td>هزارخانه ۷۵ قطعه کیفی</td><td>هزارخانه ۷۵ قطعه کیفی</td><td></td><td></td><td></td><td></td><td></td></tr><tr><td></td><td>هزارسازه جعبه‌ای کلاسیک ۸۵ قطعه (جعبه بنفش)</td><td>هزارسازه کلاسیک ۸۵ قطعه بنفش</td><td></td><td></td><td></td><td></td><td></td></tr><tr><td></td><td>آجر ۷۰ قطعه کیفی</td><td>آجر ۷۰ قطعه کیفی</td><td></td><td></td><td></td><td></td><td></td></tr><tr><td></td><td>اعصاب سنج مائده</td><td>اعصاب‌سنج مائده</td><td></td><td></td><td></td><td></td><td></td></tr><tr><td></td><td>ساختنی فلزی ۴۰ مدل</td><td>ساختنی فلزی ۴۰ مدل</td><td></td><td></td><td></td><td></td><td></td></tr><tr><td></td><td>ساختنی فلزی ۲۰ مدل</td><td>ساختنی فلزی ۲۰ مدل</td><td></td><td></td><td></td><td></td><td></td></tr><tr><td></td><td>رکب</td><td>رکب</td><td>4495</td><td>رومیز</td><td></td><td></td><td></td></tr><tr><td></td><td>ساختنی فلزی ۱۰ مدل</td><td>ساختنی فلزی ۱۰ مدل</td><td></td><td></td><td></td><td></td><td></td></tr><tr><td></td><td>گارنت</td><td>گارنت</td><td></td><td></td><td></td><td></td><td></td></tr><tr><td></td><td>شارلاتان چارپایه</td><td>شارلاتان چارپایه</td><td>4489</td><td>چارپایه</td><td></td><td></td><td></td></tr><tr><td></td><td>آزول ۲ شیشه‌های مشجر</td><td>آزول ۲ شیشه‌های مشجر</td><td></td><td></td><td></td><td></td><td></td></tr><tr><td></td><td>جاده ابریشم یک تجارت ادویه</td><td>جاده ابریشم ۱ (تجارت ادویه)</td><td></td><td></td><td></td><td></td><td></td></tr><tr><td></td><td>اپتیکال</td><td>اپتیکال</td><td></td><td></td><td></td><td></td><td></td></tr><tr><td></td><td>مهاجران کاتان میپل کینگ</td><td>کاتان میپل‌کینگ</td><td>4506</td><td>میپل کینگ</td><td></td><td></td><td></td></tr><tr><td></td><td>آخرین ایستگاه</td><td>آخرین ایستگاه</td><td></td><td></td><td></td><td></td><td></td></tr><tr><td></td><td>مجموعه دومینو رابطه یک طرفه</td><td>دومینو رابطه یک‌طرفه</td><td></td><td></td><td></td><td></td><td></td></tr><tr><td></td><td>پازل هزار قطعه حرم امام رضا</td><td>پازل ۱۰۰۰ تکه حرم امام رضا</td><td></td><td></td><td></td><td></td><td></td></tr><tr><td></td><td>فینگر بال</td><td>فینگر بال</td><td></td><td></td><td></td><td></td><td></td></tr><tr><td></td><td>مموری MEMO GAME</td><td>مموری گیم</td><td></td><td></td><td></td><td></td><td></td></tr><tr><td></td><td>بگرد و پیدا کن لگو نینجا</td><td>بگرد و پیدا کن لگو نینجا</td><td></td><td></td><td></td><td></td><td></td></tr><tr><td></td><td>خانه بلوکی ۵۸ قطعه ۴۰۹۰ بردیا</td><td>خانه بلوکی ۵۸ قطعه بردیا</td><td></td><td></td><td></td><td></td><td></td></tr><tr><td></td><td>خانه بلوکی ۸۶ قطعه ۴۰۹۲ بردیا</td><td>خانه بلوکی ۸۶ قطعه بردیا</td><td></td><td></td><td></td><td></td><td></td></tr><tr><td></td><td>گیربکس ۱۵۰ قطعه</td><td>گیربکس ۱۵۰ قطعه</td><td></td><td></td><td></td><td></td><td></td></tr><tr><td></td><td>مستر جک به همراه اکسپنشن</td><td>مستر جک همراه اکسپنشن</td><td>4699</td><td>اسپیس برد</td><td></td><td></td><td></td></tr><tr><td></td><td>آنلاک پروفسور نوساید</td><td>آنلاک پروفسور نوساید</td><td>4491</td><td>دهکده بردگیم</td><td></td><td></td><td></td></tr><tr><td></td><td>آشپزباشی</td><td>آشپزباشی</td><td></td><td></td><td></td><td></td><td></td></tr><tr><td></td><td>لذت نقاشی</td><td>لذت نقاشی</td><td></td><td></td><td></td><td></td><td></td></tr><tr><td></td><td>گربه انفجاری خیر و شر فندقچه</td><td>گربه انفجاری خیر و شر فندقچه</td><td></td><td></td><td></td><td></td><td></td></tr><tr><td></td><td>ساختنی حرکتی ماشین کنترلی ۳۰ مدل روبورکارنا</td><td>ساختنی ماشین کنترلی ۳۰ مدل روبوکارنا</td><td>4542</td><td>روبوکارنا</td><td></td><td></td><td></td></tr><tr><td></td><td>استروپ بال</td><td>استروپ بال</td><td></td><td></td><td></td><td></td><td></td></tr><tr><td></td><td>تیزبچین ۴ نفره</td><td>تیزبین ۴ نفره</td><td></td><td></td><td></td><td></td><td></td></tr><tr><td></td><td>کارگاهان فرا طبیعی</td><td>کارآگاهان فراطبیعی</td><td></td><td></td><td></td><td></td><td></td></tr><tr><td></td><td>لگو جعبه‌ای ۴۰۳۵ بردیا</td><td>لگو جعبه‌ای بردیا</td><td></td><td></td><td></td><td></td><td></td></tr><tr><td></td><td>فار اوی</td><td>فار اوی</td><td></td><td></td><td></td><td></td><td></td></tr><tr><td></td><td>هفت مریض</td><td>هفت مریض</td><td></td><td></td><td></td><td></td><td></td></tr><tr><td></td><td>بازی قرن - آلفا</td><td>بازی قرن (آلفا)</td><td></td><td></td><td></td><td></td><td></td></tr><tr><td></td><td>برج‌های سرگردان</td><td>برج‌های سرگردان</td><td></td><td></td><td></td><td></td><td></td></tr><tr><td></td><td>آکرو پلیس</td><td>آکروپلیس</td><td>4491</td><td>دهکده بردگیم</td><td></td><td></td><td></td></tr><tr><td></td><td>پازل ساعتی ضامن آهو</td><td>پازل ساعتی ضامن آهو</td><td>4507</td><td>هفت خان</td><td></td><td></td><td></td></tr><tr><td></td><td>ماموریت ۱۰۰۶</td><td>ماموریت ۱۰۰۶</td><td>4491</td><td>دهکده بردگیم</td><td></td><td></td><td></td></tr><tr><td></td><td>لگو چرخ دنده‌ای</td><td>لگو چرخ‌دنده‌ای</td><td></td><td></td><td></td><td></td><td></td></tr><tr><td></td><td>گیگامگ ۶ قطعه</td><td>گیگامگ ۶ قطعه</td><td></td><td></td><td></td><td></td><td></td></tr><tr><td></td><td>کیهان هوپا</td><td>کیهان هوپا</td><td>4508</td><td>هوپا</td><td></td><td></td><td></td></tr><tr><td></td><td>به من بگو ساعت چنده؟</td><td>به من بگو ساعت چنده؟</td><td></td><td></td><td></td><td></td><td></td></tr><tr><td></td><td>نقش مخفی مانی هیست</td><td>نقش مخفی مانی هیست</td><td></td><td></td><td></td><td></td><td></td></tr><tr><td></td><td>آزول دوئل</td><td>آزول دوئل</td><td></td><td></td><td></td><td></td><td></td></tr><tr><td></td><td>میکروکیدز (کارآگاهان کوچک)</td><td>میکروکیدز (کارآگاهان کوچک)</td><td></td><td></td><td></td><td></td><td></td></tr><tr><td></td><td>کارگاه نجاری</td><td>کارگاه نجاری</td><td></td><td></td><td></td><td></td><td></td></tr><tr><td></td><td>بوبو فکرآوران</td><td>بوبو فکرآوران</td><td>4499</td><td>فکرآوران</td><td></td><td></td><td></td></tr><tr><td></td><td>اسب‌های تک شاخ</td><td>اسب‌های تک‌شاخ</td><td></td><td></td><td></td><td></td><td></td></tr><tr><td></td><td>دار بافندگی مربع</td><td>دار بافندگی مربع</td><td></td><td></td><td></td><td></td><td></td></tr><tr><td></td><td>پنتاگو رد</td><td>پنتاگو رد</td><td></td><td></td><td></td><td></td><td></td></tr><tr><td></td><td>مکعب کوییزنر فکرا</td><td>مکعب کوییزنر فکراگیم</td><td>4500</td><td>فکراگیم</td><td></td><td></td><td></td></tr><tr><td></td><td>دانی لند آموزش اعداد ریاضی</td><td>دانی‌لند آموزش اعداد</td><td></td><td></td><td></td><td></td><td></td></tr><tr><td></td><td>دانی لند آموزش حروف انگلیسی</td><td>دانی‌لند آموزش حروف انگلیسی</td><td></td><td></td><td></td><td></td><td></td></tr><tr><td></td><td>ماربل شوت سالار</td><td>ماربل شوت سالار</td><td></td><td></td><td></td><td></td><td></td></tr><tr><td></td><td>دومینو ۲۰۰ قطعه پرشین</td><td>دومینو ۲۰۰ قطعه پرشین</td><td>4486</td><td>پرشین</td><td></td><td></td><td></td></tr><tr><td></td><td>دومینو ۳۰۰ قطعه پرشین</td><td>دومینو ۳۰۰ قطعه پرشین</td><td>4486</td><td>پرشین</td><td></td><td></td><td></td></tr><tr><td></td><td>دومینو ۵۰۰ قطعه پرشین</td><td>دومینو ۵۰۰ قطعه پرشین</td><td>4486</td><td>پرشین</td><td></td><td></td><td></td></tr><tr><td></td><td>سودوکو روپک</td><td>سودوکو روپک</td><td></td><td></td><td></td><td></td><td></td></tr><tr><td></td><td>پنتاگو قرمز پندار نیک</td><td>پنتاگو قرمز پندار نیک</td><td></td><td></td><td></td><td></td><td></td></tr><tr><td></td><td>زد و بند</td><td>زد و بند</td><td></td><td></td><td></td><td></td><td></td></tr><tr><td></td><td>ادا بازی ۵۴۰ کلمه</td><td>ادابازی ۵۴۰ کلمه</td><td></td><td></td><td></td><td></td><td></td></tr><tr><td></td><td>هزارسازه صادراتی ۸۵ قطعه</td><td>هزارسازه صادراتی ۸۵ قطعه</td><td></td><td></td><td></td><td></td><td></td></tr><tr><td></td><td>شوت برد</td><td>شوت برد</td><td></td><td></td><td></td><td></td><td></td></tr><tr><td></td><td>ساختنی فلزی دو طرح موتور</td><td>ساختنی فلزی ۲ طرح موتور</td><td></td><td></td><td></td><td></td><td></td></tr><tr><td></td><td>دار گل بافی</td><td>دار گلبافی</td><td></td><td></td><td></td><td></td><td></td></tr><tr><td></td><td>بازی فکری ساختنی‌های حرکتی 20 کاره (Robokarena 20-in-1 Motion Building Kit) | بالای 5 سال – روبوکارنا</td><td>ساختنی حرکتی ۲۰ کاره روبوکارنا</td><td>4542</td><td>روبوکارنا</td><td></td><td></td><td></td></tr><tr><td></td><td>اتللو ۸*۸ کلاسیک</td><td>اتللو ۸*۸ کلاسیک</td><td></td><td></td><td></td><td></td><td></td></tr><tr><td></td><td>خانه سازی کلاسیک ۲۵ قطعه</td><td>خانه‌سازی کلاسیک ۲۵ قطعه</td><td></td><td></td><td></td><td></td><td></td></tr><tr><td></td><td>پازل ۴۰ قطعه آموزشی ۸۰۴۴ کینگ</td><td>پازل ۴۰ قطعه کینگ</td><td></td><td></td><td></td><td></td><td></td></tr><tr><td></td><td>ماز کیهانی</td><td>ماز کیهانی</td><td></td><td></td><td></td><td></td><td></td></tr><tr><td></td><td>شیر مرغ تا جون آدمیزاد</td><td>شیر مرغ تا جون آدمیزاد</td><td></td><td></td><td></td><td></td><td></td></tr><tr><td></td><td>کلوپ بازی ۵*۱</td><td>کلوپ بازی ۵ در ۱</td><td></td><td></td><td></td><td></td><td></td></tr><tr><td></td><td>شطرنج مثلثی - تریگل</td><td>شطرنج مثلثی تریگل</td><td></td><td></td><td></td><td></td><td></td></tr><tr><td></td><td>بولینگ کوچک فکرآوران</td><td>بولینگ کوچک فکرآوران</td><td>4499</td><td>فکرآوران</td><td></td><td></td><td></td></tr><tr><td></td><td>بولینگ بزرگ فکرآوران</td><td>بولینگ بزرگ فکرآوران</td><td>4499</td><td>فکرآوران</td><td></td><td></td><td></td></tr><tr><td></td><td>دارت چسبی</td><td>دارت چسبی</td><td></td><td></td><td></td><td></td><td></td></tr><tr><td></td><td>کریدور چوبی دکتر گیمز</td><td>کریدور چوبی دکترگیمز</td><td></td><td></td><td></td><td></td><td></td></tr><tr><td></td><td>دوزکشی</td><td>دوزکشی</td><td></td><td></td><td></td><td></td><td></td></tr><tr><td></td><td>پازل هزار قطعه‌ی خلیج فارس</td><td>پازل ۱۰۰۰ تکه خلیج فارس</td><td></td><td></td><td></td><td></td><td></td></tr><tr><td></td><td>آمیرزا</td><td>آمیرزا</td><td></td><td></td><td></td><td></td><td></td></tr><tr><td></td><td>پازل هزار قطعه چوگان در نقش جهان</td><td>پازل ۱۰۰۰ تکه چوگان نقش جهان</td><td></td><td></td><td></td><td></td><td></td></tr><tr><td></td><td>مونته سوری رنگین کمان ۵ ستون چوبی</td><td>مونته‌سوری رنگین‌کمان ۵ ستون</td><td></td><td></td><td></td><td></td><td></td></tr><tr><td></td><td>فوتبال گیم</td><td>فوتبال گیم</td><td></td><td></td><td></td><td></td><td></td></tr><tr><td></td><td>پرونده شرلوک میراث پدر خوانده</td><td>شرلوک (میراث پدرخوانده)</td><td>4491</td><td>دهکده بردگیم</td><td></td><td></td><td></td></tr><tr><td></td><td>پازلکو - سافاری</td><td>پازلکو سافاری</td><td></td><td></td><td></td><td></td><td></td></tr><tr><td></td><td>الفبای فارسی آهنربایی نو آموز ۲/۲ جعبه‌ای</td><td>الفبای آهنربایی نوآموز جعبه‌ای</td><td></td><td></td><td></td><td></td><td></td></tr><tr><td></td><td>پرونده آقای شب ۱</td><td>آقای شب ۱</td><td>4513</td><td>مختاپوس</td><td></td><td></td><td></td></tr><tr><td>49297</td><td>بازی فکری پرونده معمایی شکارچی (The Hunter Mystery File) | نسخه اصلی فارسی – مختاپوس</td><td>پرونده شکارچی مختاپوس</td><td>4513</td><td>مختاپوس</td><td></td><td></td><td></td></tr><tr><td></td><td>پازل ۶۰ قطعه کودکانه کینگ</td><td>پازل ۶۰ قطعه کودکانه کینگ</td><td></td><td></td><td></td><td></td><td></td></tr><tr><td></td><td>پرونده تقاص معشوق</td><td>تقاص معشوق</td><td>4513</td><td>مختاپوس</td><td></td><td></td><td></td></tr><tr><td></td><td>پرونده نامه سری ۲ - عملیات نجات</td><td>نامه سری ۲ (عملیات نجات)</td><td>4513</td><td>مختاپوس</td><td></td><td></td><td></td></tr><tr><td>49505</td><td>بازی معمایی پرونده سقوط (The Fall Case) | نسخه اصلی – مختاپوس</td><td>بازی فکری پرونده سقوط</td><td>4513</td><td>مختاپوس</td><td></td><td></td><td></td></tr><tr><td></td><td>پرونده رولت روسی</td><td>پرونده رولت روسی</td><td>4513</td><td>مختاپوس</td><td></td><td></td><td></td></tr><tr><td></td><td>پرونده دزدی قرن</td><td>پرونده دزدی قرن</td><td>4513</td><td>مختاپوس</td><td></td><td></td><td></td></tr><tr><td></td><td>پرونده شرلوک ماشین مرگ</td><td>شرلوک (ماشین مرگ)</td><td>4491</td><td>دهکده بردگیم</td><td></td><td></td><td></td></tr><tr><td>49583</td><td>بازی فکری پرونده جنایی ستون فقرات شیطان (The Devil&#039;s Backbone Case) | نسخه اصلی – مختاپوس</td><td>پرونده ستون فقرات شیطان</td><td>4513</td><td>مختاپوس</td><td></td><td></td><td></td></tr><tr><td></td><td>بازگشت به هزارتو</td><td>بازگشت به هزارتو</td><td>4491</td><td>دهکده بردگیم</td><td></td><td></td><td></td></tr><tr><td></td><td>پرونده جاسوس</td><td>پرونده جاسوس</td><td>4513</td><td>مختاپوس</td><td></td><td></td><td></td></tr><tr><td></td><td>پرونده رد خون در هتل</td><td>رد خون در هتل</td><td>4513</td><td>مختاپوس</td><td></td><td></td><td></td></tr><tr><td></td><td>پرونده توطئه در آتش</td><td>توطئه در آتش</td><td>4513</td><td>مختاپوس</td><td></td><td></td><td></td></tr><tr><td></td><td>پرونده شام آخر</td><td>شام آخر</td><td>4513</td><td>مختاپوس</td><td></td><td></td><td></td></tr><tr><td></td><td>پرونده آخرین تابلو</td><td>آخرین تابلو</td><td>4513</td><td>مختاپوس</td><td></td><td></td><td></td></tr><tr><td></td><td>پرونده پرتره آخر</td><td>پرتره آخر</td><td>4513</td><td>مختاپوس</td><td></td><td></td><td></td></tr><tr><td></td><td>دو پرونده جیغ در ونیز و تماس اضطراری از فضا</td><td>پرونده جیغ در ونیز + تماس از فضا</td><td>4513</td><td>مختاپوس</td><td></td><td></td><td></td></tr><tr><td></td><td>پرونده آقای شب ۲</td><td>آقای شب ۲</td><td>4513</td><td>مختاپوس</td><td></td><td></td><td></td></tr><tr><td>49311</td><td>بازی فکری پرونده معمایی هم خون (Ham Khoon Mystery Case) | نسخه اصلی (تألیفی ایران) – میستری گیمز</td><td>پرونده هم‌خون میستری</td><td></td><td></td><td></td><td></td><td></td></tr><tr><td></td><td>پینگو بالانس جعبه‌ای</td><td>پینگو بالانس جعبه‌ای</td><td></td><td></td><td></td><td></td><td></td></tr><tr><td></td><td>بافندگی گوبلن ۴ کاره</td><td>بافندگی گوبلن ۴ کاره</td><td></td><td></td><td></td><td></td><td></td></tr><tr><td></td><td>پرونده آینه‌ی قاتل</td><td>آینه‌ی قاتل</td><td>4513</td><td>مختاپوس</td><td></td><td></td><td></td></tr><tr><td></td><td>پندمیک مایا گیمز</td><td>پندمیک مایاگیمز</td><td>4638</td><td>مایا گیمز</td><td></td><td></td><td></td></tr><tr><td></td><td>دو کله پوک</td><td>دو کله‌پوک</td><td></td><td></td><td></td><td></td><td></td></tr><tr><td></td><td>میم بازی (ورژن اصلی)</td><td>میم بازی</td><td></td><td></td><td></td><td></td><td></td></tr><tr><td></td><td>وایت چپل (White Chapel)</td><td>وایت چپل</td><td>4491</td><td>دهکده بردگیم</td><td></td><td></td><td></td></tr><tr><td></td><td>کورتیسانس (درباریان)</td><td>کورتیسانس</td><td>4491</td><td>دهکده بردگیم</td><td></td><td></td><td></td></tr><tr><td></td><td>تیکت تو راید اروپا چارپایه</td><td>تیکت تو راید اروپا چارپایه</td><td>4489</td><td>چارپایه</td><td></td><td></td><td></td></tr><tr><td></td><td>پازل هزار قطعه کریسمس جلفا</td><td>پازل ۱۰۰۰ تکه کریسمس جلفا</td><td></td><td></td><td></td><td></td><td></td></tr><tr><td></td><td>دورنگی</td><td>دورنگی</td><td></td><td></td><td></td><td></td><td></td></tr><tr><td></td><td>سالار دو اکتاو B19 بلز</td><td>بلز سالار ۲ اکتاو B19</td><td></td><td></td><td></td><td></td><td></td></tr><tr><td></td><td>مگنت مگ پلاس سری فلورسنت ۶۰ قطعه</td><td>مگنت فلورسنت ۶۰ قطعه</td><td></td><td></td><td></td><td></td><td></td></tr><tr><td></td><td>قهوه قجری</td><td>قهوه قجری</td><td></td><td></td><td></td><td></td><td></td></tr><tr><td></td><td>آخرین گرگینه</td><td>آخرین گرگینه</td><td>4492</td><td>دورهمی جواهری</td><td></td><td></td><td></td></tr><tr><td></td><td>خون آشام داستان یک کودتا</td><td>خون‌آشام (داستان یک کودتا)</td><td>4492</td><td>دورهمی جواهری</td><td></td><td></td><td></td></tr><tr><td></td><td>دره و تپه ندیده</td><td>دره و تپه ندیده</td><td></td><td></td><td></td><td></td><td></td></tr><tr><td></td><td>دون تلماسه (Uprising) دهکده بردگیم</td><td>دون تلماسه دهکده</td><td>4491</td><td>دهکده بردگیم</td><td></td><td></td><td></td></tr><tr><td></td><td>دکتر جیل و هاید گنجفه</td><td>دکتر جکیل و هاید گنجفه</td><td></td><td></td><td></td><td></td><td></td></tr><tr><td></td><td>مگنت سبک مشکی طلایی بتمن ۶۰ قطعه</td><td>مگنت بتمن ۶۰ قطعه</td><td></td><td></td><td></td><td></td><td></td></tr><tr><td></td><td>پرتاب سکه</td><td>پرتاب سکه</td><td></td><td></td><td></td><td></td><td></td></tr><tr><td></td><td>منجنیق</td><td>منجنیق</td><td></td><td></td><td></td><td></td><td></td></tr><tr><td></td><td>میخ و چکش الفبای انگلیسی</td><td>میخ و چکش الفبای انگلیسی</td><td></td><td></td><td></td><td></td><td></td></tr><tr><td></td><td>جوکر فکرآوران</td><td>جوکر فکرآوران</td><td>4499</td><td>فکرآوران</td><td></td><td></td><td></td></tr><tr><td></td><td>بلاک آس ۴ نفره کشودار</td><td>بلاک آس ۴ نفره کشودار</td><td></td><td></td><td></td><td></td><td></td></tr><tr><td></td><td>جومانجی کیفی</td><td>جومانجی کیفی</td><td>4499</td><td>فکرآوران</td><td></td><td></td><td></td></tr><tr><td></td><td>بمیر بخند</td><td>بمیر بخند</td><td></td><td></td><td></td><td></td><td></td></tr><tr><td></td><td>چیز فیس الفان</td><td>چیز فیس الفان</td><td></td><td></td><td></td><td></td><td></td></tr><tr><td></td><td>هیرکان هوپا</td><td>هیرکان هوپا</td><td>4508</td><td>هوپا</td><td></td><td></td><td></td></tr><tr><td></td><td>یوبیبو بردباز</td><td>یوبیبو بردباز</td><td></td><td></td><td></td><td></td><td></td></tr><tr><td></td><td>پرتاب حلقه</td><td>پرتاب حلقه</td><td></td><td></td><td></td><td></td><td></td></tr><tr><td></td><td>توپ آپارتمانی پارچه‌ای بزرگ</td><td>توپ آپارتمانی پارچه‌ای بزرگ</td><td></td><td></td><td></td><td></td><td></td></tr><tr><td></td><td>شوتبال ۳ بازی</td><td>شوتبال ۳ کاره</td><td></td><td></td><td></td><td></td><td></td></tr><tr><td></td><td>بافوم کف پوش لی لی</td><td>کف‌پوش لی‌لی بافوم</td><td></td><td></td><td></td><td></td><td></td></tr><tr><td></td><td>دار ریسمان بافی</td><td>دار ریسمان‌بافی</td><td></td><td></td><td></td><td></td><td></td></tr><tr><td></td><td>ناتو + اپلیکیشن</td><td>ناتو</td><td></td><td></td><td></td><td></td><td></td></tr><tr><td></td><td>روبیک سرکلیدی ۳*۳ توپی</td><td>روبیک سرکلیدی ۳*۳ توپی</td><td></td><td></td><td></td><td></td><td></td></tr><tr><td></td><td>اتللو صادراتی</td><td>اتللو صادراتی</td><td></td><td></td><td></td><td></td><td></td></tr><tr><td></td><td>پرونده بلک بریم ۳ ریشه‌های تاریکی</td><td>بلک بریم ۳ (ریشه‌های تاریکی)</td><td>4491</td><td>دهکده بردگیم</td><td></td><td></td><td></td></tr><tr><td></td><td>توپ آپارتمانی کوچک پارچه‌ای</td><td>توپ آپارتمانی پارچه‌ای کوچک</td><td></td><td></td><td></td><td></td><td></td></tr><tr><td></td><td>توپ پولیشی کوچک پرشین</td><td>توپ پولیشی کوچک پرشین</td><td>4486</td><td>پرشین</td><td></td><td></td><td></td></tr><tr><td></td><td>سوپر کمان</td><td>سوپر کمان</td><td></td><td></td><td></td><td></td><td></td></tr><tr><td></td><td>چهار بازی در یک جعبه</td><td>۴ بازی در یک جعبه</td><td></td><td></td><td></td><td></td><td></td></tr><tr><td></td><td>برج توپ جعبه‌ای</td><td>برج توپ جعبه‌ای</td><td></td><td></td><td></td><td></td><td></td></tr><tr><td></td><td>جنگا جعبه چوبی</td><td>جنگا جعبه چوبی</td><td></td><td></td><td></td><td></td><td></td></tr><tr><td></td><td>فرفره نخی</td><td>فرفره نخی</td><td></td><td></td><td></td><td></td><td></td></tr><tr><td></td><td>بسته کامل ریاضی توت فرنگی پایه پنجم دبستان</td><td>ریاضی توت فرنگی پنجم</td><td></td><td></td><td></td><td></td><td></td></tr><tr><td></td><td>مهاجران کاتان افزونه ۵ و ۶ نفره میپل کینگ</td><td>افزونه کاتان ۵ و ۶ نفره</td><td></td><td></td><td></td><td></td><td></td></tr><tr><td></td><td>استند سلمونی همراه</td><td>استند سلمونی</td><td></td><td></td><td></td><td></td><td></td></tr><tr><td></td><td>مکعب ابری حیوانات جغجغه‌دار</td><td>مکعب ابری حیوانات</td><td></td><td></td><td></td><td></td><td></td></tr><tr><td></td><td>کیک موتور ۲۹ قطعه</td><td>کیک موتور</td><td></td><td></td><td></td><td></td><td></td></tr><tr><td></td><td>کلیک ماشین ۳۲ قطعه</td><td>کلیک ماشین</td><td></td><td></td><td></td><td></td><td></td></tr><tr><td></td><td>مارپیچ لیزری</td><td>مارپیچ لیزری</td><td></td><td></td><td></td><td></td><td></td></tr><tr><td></td><td>الفبای آهنربایی تی تویز</td><td>الفبای آهنربایی</td><td></td><td></td><td></td><td></td><td></td></tr><tr><td></td><td>بسته کامل ریاضی توت فرنگی پایه ششم دبستان</td><td>ریاضی توت فرنگی ششم</td><td></td><td></td><td></td><td></td><td></td></tr><tr><td></td><td>جغجغه چوبی سپتا</td><td>جغجغه چوبی</td><td></td><td></td><td></td><td></td><td></td></tr><tr><td></td><td>هلیکوتر آپاچی زینگو</td><td>هلیکوپتر آپاچی</td><td></td><td></td><td></td><td></td><td></td></tr><tr><td></td><td>هلیکوپتر آتش‌نشانی زینگو</td><td>هلیکوپتر آتش‌نشانی</td><td></td><td></td><td></td><td></td><td></td></tr><tr><td></td><td>هلیکوتر آمبولانس زینگو</td><td>هلیکوپتر آمبولانس</td><td></td><td></td><td></td><td></td><td></td></tr><tr><td></td><td>هلیکوپتر سافاری زینگو</td><td>هلیکوپتر سافاری</td><td></td><td></td><td></td><td></td><td></td></tr><tr><td></td><td>هلیکوتر پلیس زینگو</td><td>هلیکوپتر پلیس</td><td></td><td></td><td></td><td></td><td></td></tr><tr><td></td><td>رالی</td><td>رالی</td><td></td><td></td><td></td><td></td><td></td></tr><tr><td></td><td>کارخانه‌های شگفت‌انگیز - گیم باکس</td><td>کارخانه‌های شگفت‌انگیز</td><td></td><td></td><td></td><td></td><td></td></tr><tr><td></td><td>۱۳ سرنخ</td><td>۱۳ سرنخ</td><td></td><td></td><td></td><td></td><td></td></tr><tr><td></td><td>لیفتراک وارداتی FORKUFT</td><td>لیفتراک</td><td></td><td></td><td></td><td></td><td></td></tr><tr><td></td><td>شب مافیا ساده (مستقل ۱)</td><td>شب مافیا ساده</td><td></td><td></td><td></td><td></td><td></td></tr><tr><td></td><td>اکسپنشن شب‌های مافیا</td><td>اکسپنشن شب‌های مافیا</td><td></td><td></td><td></td><td></td><td></td></tr><tr><td></td><td>شطرنج ترنج کلاسیک</td><td>شطرنج کلاسیک</td><td></td><td></td><td></td><td></td><td></td></tr><tr><td></td><td>شطرنج ترنج ورزشی</td><td>شطرنج ورزشی</td><td></td><td></td><td></td><td></td><td></td></tr><tr><td></td><td>رنگ آمیزی رنگی با ماسه (sandy fun)</td><td>رنگ‌آمیزی با ماسه</td><td></td><td></td><td></td><td></td><td></td></tr><tr><td></td><td>استند بیمارستانی همراه</td><td>استند بیمارستانی</td><td></td><td></td><td></td><td></td><td></td></tr><tr><td></td><td>پازل راهنمایی رانندگی ۲۷ قطعه</td><td>پازل راهنمایی رانندگی</td><td></td><td></td><td></td><td></td><td></td></tr><tr><td></td><td>آموزش زبان انگلیسی آهنربایی</td><td>زبان انگلیسی آهنربایی</td><td></td><td></td><td></td><td></td><td></td></tr><tr><td></td><td>دومینو سپتا</td><td>دومینو</td><td></td><td></td><td></td><td></td><td></td></tr><tr><td></td><td>هواپیما ملخی توری زینگو</td><td>هواپیما ملخی</td><td></td><td></td><td></td><td></td><td></td></tr><tr><td></td><td>نقاشی متری دیزنی تویوتو</td><td>نقاشی متری دیزنی</td><td></td><td></td><td></td><td></td><td></td></tr><tr><td></td><td>پرونده پنج ساعت تا مرگ</td><td>پرونده ۵ ساعت تا مرگ</td><td></td><td></td><td></td><td></td><td></td></tr><tr><td></td><td>پرونده معمایی هاگوارتز</td><td>پرونده هاگوارتز</td><td></td><td></td><td></td><td></td><td></td></tr><tr><td></td><td>توپ جغجغه‌ای رنگی بزرگ</td><td>توپ جغجغه‌ای</td><td></td><td></td><td></td><td></td><td></td></tr><tr><td></td><td>خط‌کش چوبی طرح حیوانات</td><td>خط‌کش چوبی حیوانات</td><td></td><td></td><td></td><td></td><td></td></tr><tr><td></td><td>اونو مینیون چارپایه</td><td>اونو مینیون</td><td></td><td></td><td></td><td></td><td></td></tr><tr><td></td><td>اونو لبوبو چارپایه</td><td>اونو لبوبو</td><td></td><td></td><td></td><td></td><td></td></tr><tr><td></td><td>اونو اسکیپ بو</td><td>اسکیپ بو</td><td></td><td></td><td></td><td></td><td></td></tr><tr><td></td><td>پرونده جلال آل احمد</td><td>پرونده جلال آل احمد</td><td></td><td></td><td></td><td></td><td></td></tr><tr><td></td><td>توپ پولیشی بزرگ پرشین</td><td>توپ پولیشی</td><td></td><td></td><td></td><td></td><td></td></tr><tr><td></td><td>خمیر ۱۲ رنگ سبک کلی جعبه‌ای</td><td>خمیر کلی جعبه‌ای</td><td></td><td></td><td></td><td></td><td></td></tr><tr><td></td><td>خمیر ۱۲ رنگ سبک کلی سلفونی</td><td>خمیر کلی سلفونی</td><td></td><td></td><td></td><td></td><td></td></tr><tr><td></td><td>پرونده تو زودتر بکش</td><td>پرونده تو زودتر بکش</td><td></td><td></td><td></td><td></td><td></td></tr><tr><td></td><td>پرونده تختی</td><td>پرونده تختی</td><td></td><td></td><td></td><td></td><td></td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <section class="guide section">  <h3>📦 راهنمای محصولات جدید</h3>
+  <ul>
+    <li>شناسه‌های ووکامرس (WooCommerce ID) نباید تغییر کنند.</li>
+    <li>نام کوتاه هر محصول برای ارجاعات سریع استفاده می‌شود.</li>
+  </ul></section>
+</div>
+<script>
+(function(){
+  const update = function(){
+    const nodes = document.querySelectorAll('[data-relative-time]');
+    if (!nodes.length) return;
+    let rtf;
+    try { rtf = new Intl.RelativeTimeFormat('fa', {numeric: 'auto'}); } catch (e) { rtf = null; }
+    const unitMap = [
+      {limit: 60, unit: 'second', div: 1, label: 'ثانیه'},
+      {limit: 3600, unit: 'minute', div: 60, label: 'دقیقه'},
+      {limit: 86400, unit: 'hour', div: 3600, label: 'ساعت'},
+      {limit: 2592000, unit: 'day', div: 86400, label: 'روز'},
+      {limit: 31104000, unit: 'month', div: 2592000, label: 'ماه'},
+      {limit: Infinity, unit: 'year', div: 31104000, label: 'سال'}
+    ];
+    nodes.forEach(function(node){
+      const iso = node.getAttribute('data-relative-time');
+      if (!iso) return;
+      const target = new Date(iso);
+      if (isNaN(target)) return;
+      const diffSeconds = Math.round((target.getTime() - Date.now()) / 1000);
+      const absSeconds = Math.abs(diffSeconds);
+      let unit = unitMap.find(u => absSeconds < u.limit) || unitMap[unitMap.length - 1];
+      let value = Math.round(diffSeconds / unit.div);
+      if (!isFinite(value)) value = 0;
+      let text;
+      if (rtf) {
+        text = rtf.format(value, unit.unit);
+      } else {
+        const suffix = value <= 0 ? 'پیش' : 'بعد';
+        text = Math.abs(value) + ' ' + unit.label + ' ' + suffix;
+      }
+      node.textContent = ' | ' + text;
+    });
+  };
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', update);
+  } else {
+    update();
+  }
+  
+  // Segmented Theme Selector Handler
+  const buttons = document.querySelectorAll('.theme-switch .theme-btn');
+  if (buttons.length) {
+    const currentTheme = localStorage.getItem('theme') || 'system';
+    
+    buttons.forEach(btn => {
+      if (btn.getAttribute('data-theme') === currentTheme) {
+        btn.classList.add('active');
+      }
+    });
+
+    const setTheme = (theme) => {
+      localStorage.setItem('theme', theme);
+      const isDark = theme === 'dark' || (theme === 'system' && window.matchMedia('(prefers-color-scheme: dark)').matches);
+      document.documentElement.classList.toggle('dark', isDark);
+      document.documentElement.classList.toggle('light', !isDark);
+      
+      buttons.forEach(btn => {
+        btn.classList.toggle('active', btn.getAttribute('data-theme') === theme);
+      });
+    };
+
+    buttons.forEach(btn => {
+      btn.addEventListener('click', () => {
+        setTheme(btn.getAttribute('data-theme'));
+      });
+    });
+
+    window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', e => {
+      if ((localStorage.getItem('theme') || 'system') === 'system') {
+        document.documentElement.classList.toggle('dark', e.matches);
+        document.documentElement.classList.toggle('light', !e.matches);
+      }
+    });
+  }
+})();
+</script>
+</body>
+</html>

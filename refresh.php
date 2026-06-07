@@ -16,14 +16,15 @@ declare(strict_types=1);
 //////////////////////
 const SPREADSHEET_ID = '1LsM7opLNqYuirVM20rEBZwOjaPDNlaxC1bZpZtDbkck';
 const ENDPOINTS = [
-  'brands'     => 120861559,
-  'tags'       => 1888622902,
-  'categories' => 449911808,
-  'attributes' => 1260611769,
-  'products'   => 26471258,
+  'brands'       => 120861559,
+  'tags'         => 1888622902,
+  'categories'   => 449911808,
+  'attributes'   => 1260611769,
+  'products'     => 26471258,
+  'new_products' => 880069675,
 ];
 const TAXONOMY_JSON = 'taxonomy.json';
-const VERSION = '1.1.1';
+const VERSION = '1.1.2';
 
 // خروجی‌ها در همین دایرکتوری ساخته می‌شوند
 const OUTPUT_DIR = __DIR__;
@@ -78,11 +79,12 @@ foreach ($targets as $name => $gid) {
   } unset($r);
 
   $titleMap = [
-    'brands'     => 'لیست نام برندها',
-    'tags'       => 'لیست تگ‌ها',
-    'categories' => 'لیست دسته‌بندی‌ها',
-    'attributes' => 'لیست ویژگی‌ها',
-    'products'   => 'لیست محصولات',
+    'brands'       => 'لیست نام برندها',
+    'tags'         => 'لیست تگ‌ها',
+    'categories'   => 'لیست دسته‌بندی‌ها',
+    'attributes'   => 'لیست ویژگی‌ها',
+    'products'     => 'لیست محصولات',
+    'new_products' => 'لیست محصولات جدید',
   ];
   $title = $titleMap[$name] ?? ('Snapshot: '.$name);
   $updatedAtDisplay = now_tehran_string();
@@ -433,10 +435,14 @@ function build_unified_snapshot_from_payloads(array $payloads, string $timestamp
 
   $summary = [];
   foreach ($payloads as $key => $payload) {
+    if ($key === 'new_products') continue;
     if (isset($payload['rows']) && is_array($payload['rows'])) {
       $summary[$key] = count($payload['rows']);
     }
   }
+
+  $filteredPayloads = $payloads;
+  unset($filteredPayloads['new_products']);
 
   return [
     'meta' => $meta,
@@ -449,7 +455,7 @@ function build_unified_snapshot_from_payloads(array $payloads, string $timestamp
       'products'   => 'products.json',
     ],
     'summary_counts' => $summary,
-    'datasets' => $payloads,
+    'datasets' => $filteredPayloads,
   ];
 }
 
@@ -797,20 +803,24 @@ th:nth-child(3), td:nth-child(3){
   th:nth-child(3), td:nth-child(3){min-width:200px}
 }
 
-/* Custom styling override for products table */
-.tblwrap-products th:nth-child(1), .tblwrap-products td:nth-child(1){
+/* Custom styling override for products and new_products tables */
+.tblwrap-products th:nth-child(1), .tblwrap-products td:nth-child(1),
+.tblwrap-new_products th:nth-child(1), .tblwrap-new_products td:nth-child(1) {
   width:auto; min-width:240px; max-width:none;
   white-space:normal; text-align:right; direction:rtl; font-variant-numeric:normal;
 }
-.tblwrap-products th:nth-child(2), .tblwrap-products td:nth-child(2){
+.tblwrap-products th:nth-child(2), .tblwrap-products td:nth-child(2),
+.tblwrap-new_products th:nth-child(2), .tblwrap-new_products td:nth-child(2) {
   width:auto; min-width:180px; max-width:none;
   white-space:normal; text-align:right; direction:rtl;
 }
-.tblwrap-products th:nth-child(3), .tblwrap-products td:nth-child(3){
+.tblwrap-products th:nth-child(3), .tblwrap-products td:nth-child(3),
+.tblwrap-new_products th:nth-child(3), .tblwrap-new_products td:nth-child(3) {
   width:auto; min-width:150px; max-width:none;
   white-space:normal; text-align:right; direction:rtl;
 }
-.tblwrap-products th:nth-child(4), .tblwrap-products td:nth-child(4){
+.tblwrap-products th:nth-child(4), .tblwrap-products td:nth-child(4),
+.tblwrap-new_products th:nth-child(4), .tblwrap-new_products td:nth-child(4) {
   width:120px; min-width:120px;
   white-space:nowrap; text-align:center; direction:ltr; font-variant-numeric:tabular-nums;
 }
@@ -1126,6 +1136,7 @@ function render_nav(string $active): string {
   <a href="./categories.html" {$is('categories')}>دسته‌بندی‌ها</a>
   <a href="./attributes.html" {$is('attributes')}>ویژگی‌ها</a>
   <a href="./products.html" {$is('products')}>محصولات</a>
+  <a href="./new_products.html" {$is('new_products')}>محصولات جدید</a>
   <div class="theme-switch" role="group" aria-label="Theme selector">
     <button class="theme-btn" data-theme="light" title="روشن">☀️</button>
     <button class="theme-btn" data-theme="dark" title="تاریک">🌙</button>
@@ -1312,6 +1323,13 @@ function guidelines_section_html(string $name): string {
         <li>نام کوتاه هر محصول برای ارجاعات سریع استفاده می‌شود.</li>
       </ul>
     HTML,
+    'new_products' => <<<HTML
+      <h3>📦 راهنمای محصولات جدید</h3>
+      <ul>
+        <li>شناسه‌های ووکامرس (WooCommerce ID) نباید تغییر کنند.</li>
+        <li>نام کوتاه هر محصول برای ارجاعات سریع استفاده می‌شود.</li>
+      </ul>
+    HTML,
   ];
   return '<section class="guide section">'.($map[$name] ?? '').'</section>';
 }
@@ -1404,11 +1422,12 @@ function render_index_page(array $stats, string $buildDisplay, string $buildIso)
   
   $gridItems = '';
   $labelMap = [
-    'products'   => '📦 لیست محصولات',
-    'brands'     => '🏷 لیست برندها',
-    'categories' => '📂 دسته‌بندی‌ها',
-    'attributes' => '⚙️ ویژگی‌های محصول',
-    'tags'       => '🔖 تگ‌های محصول',
+    'products'     => '📦 لیست محصولات',
+    'brands'       => '🏷 لیست برندها',
+    'categories'   => '📂 دسته‌بندی‌ها',
+    'attributes'   => '⚙️ ویژگی‌های محصول',
+    'tags'         => '🔖 تگ‌های محصول',
+    'new_products' => '✨ محصولات جدید',
   ];
   
   foreach ($labelMap as $k => $label) {
