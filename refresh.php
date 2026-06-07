@@ -23,6 +23,7 @@ const ENDPOINTS = [
   'products'   => 26471258,
 ];
 const TAXONOMY_JSON = 'taxonomy.json';
+const VERSION = '1.1.0';
 
 // خروجی‌ها در همین دایرکتوری ساخته می‌شوند
 const OUTPUT_DIR = __DIR__;
@@ -381,6 +382,7 @@ function build_structured_dataset(string $name, array $rows, string $timestampIs
 function build_unified_snapshot(array $datasets, string $timestampIso, string $timestampHumanTehran): ?array {
   if (empty($datasets)) return null;
   $meta = [
+    'version'                        => VERSION,
     'generated_at_iso8601'           => $timestampIso,
     'generated_at_epoch_seconds_utc' => iso_to_epoch($timestampIso),
     'generated_at_tehran_human'      => $timestampHumanTehran,
@@ -418,6 +420,7 @@ function build_unified_snapshot_from_payloads(array $payloads, string $timestamp
   if (empty($payloads)) return null;
 
   $meta = [
+    'version'                        => VERSION,
     'generated_at_iso8601'           => $timestampIso,
     'generated_at_epoch_seconds_utc' => iso_to_epoch($timestampIso),
     'generated_at_tehran_human'      => $timestampHumanTehran,
@@ -462,6 +465,7 @@ function build_json_payload(string $name, array $rows, string $timestampIso, str
   // دادهٔ داینامیک شیت + متادیتای زمان (برای تشخیص قدمت فایل توسط ایجنت‌ها)
   $epoch = iso_to_epoch($timestampIso);
   return [
+    'version'                      => VERSION,
     'updated_at_iso8601'           => $timestampIso,              // زمان ساخت (ISO/Tehran)
     'updated_at_epoch_seconds_utc' => $epoch,                     // یونیکس ثانیه (UTC) — برای محاسبهٔ سن در لحظهٔ خواندن
     'updated_at_tehran_human'      => $timestampHumanTehran,      // متن خوانا برای انسان (تهران)
@@ -1059,12 +1063,30 @@ html.dark .theme-btn:hover {
   white-space: normal;
   min-width: 220px;
 }
+
+/* Version Badge */
+.version-badge {
+  font-size: 0.72rem;
+  color: var(--muted);
+  align-self: center;
+  user-select: none;
+  direction: ltr;
+  padding: 3px 6px;
+  background: rgba(0, 0, 0, 0.03);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  margin-right: 8px;
+}
+html.dark .version-badge {
+  background: rgba(255, 255, 255, 0.03);
+}
 CSS;
 }
 
 
 function render_nav(string $active): string {
   $is = fn(string $k) => $k === $active ? 'class="active"' : '';
+  $ver = VERSION;
   return <<<HTML
 <nav class="topnav" aria-label="primary">
   <a href="./index.html" {$is('index')}>داشبورد</a>
@@ -1074,6 +1096,7 @@ function render_nav(string $active): string {
   <a href="./attributes.html" {$is('attributes')}>ویژگی‌ها</a>
   <a href="./products.html" {$is('products')}>محصولات</a>
   <button id="theme-toggle" class="theme-btn" aria-label="Toggle theme">🌙</button>
+  <span class="version-badge">v{$ver}</span>
 </nav>
 HTML;
 }
