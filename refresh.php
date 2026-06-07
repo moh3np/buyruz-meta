@@ -770,10 +770,198 @@ th:nth-child(3), td:nth-child(3){
 .tblwrap-products th:nth-child(3), .tblwrap-products td:nth-child(3){
   width:auto; min-width:150px; max-width:none;
   white-space:normal; text-align:right; direction:rtl;
-}
 .tblwrap-products th:nth-child(4), .tblwrap-products td:nth-child(4){
   width:120px; min-width:120px;
   white-space:nowrap; text-align:center; direction:ltr; font-variant-numeric:tabular-nums;
+}
+
+/* =========================================
+   Dashboard Specific Styles (Dark Mode Override)
+   ========================================= */
+body.index-page {
+  --bg: #0f172a;
+  --card: #1e293b;
+  --text: #f1f5f9;
+  --muted: #94a3b8;
+  --border: #334155;
+  --brand: #6366f1;
+  --accent: #06b6d4;
+  --accent-weak: rgba(6, 182, 212, 0.15);
+  background-color: var(--bg);
+}
+body.index-page .topnav {
+  background: rgba(30, 41, 59, 0.85);
+  border-bottom: 1px solid var(--border);
+}
+body.index-page .topnav a {
+  color: var(--muted);
+}
+body.index-page .topnav a:hover {
+  background: rgba(255, 255, 255, 0.05);
+  color: #fff;
+}
+body.index-page .topnav a.active {
+  color: var(--accent);
+  background: var(--accent-weak);
+  border-color: var(--accent);
+}
+body.index-page .dashboard-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 20px;
+  margin-top: 24px;
+}
+body.index-page .card-stat {
+  padding: 20px;
+  border-radius: 16px;
+  background: var(--card);
+  border: 1px solid var(--border);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  position: relative;
+  overflow: hidden;
+  min-height: 190px;
+}
+body.index-page .card-stat::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 4px;
+  background: linear-gradient(90deg, var(--brand), var(--accent));
+}
+body.index-page .card-stat:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.3);
+  border-color: var(--accent);
+}
+body.index-page .btn-sync {
+  background: linear-gradient(90deg, var(--brand), var(--accent));
+  color: white;
+  border: none;
+  padding: 12px 24px;
+  border-radius: 12px;
+  font-weight: bold;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 12px rgba(99, 102, 241, 0.3);
+  font-family: inherit;
+  font-size: 0.92rem;
+}
+body.index-page .btn-sync:hover {
+  transform: scale(1.02);
+  box-shadow: 0 6px 20px rgba(6, 182, 212, 0.4);
+}
+body.index-page .btn-sync:active {
+  transform: scale(0.98);
+}
+body.index-page .modal {
+  display: none;
+  position: fixed;
+  top: 0; left: 0; width: 100%; height: 100%;
+  background: rgba(15, 23, 42, 0.85);
+  backdrop-filter: blur(8px);
+  z-index: 100;
+  align-items: center;
+  justify-content: center;
+}
+body.index-page .modal-content {
+  background: #1e293b;
+  border: 1px solid #334155;
+  border-radius: 20px;
+  padding: 30px;
+  width: 90%;
+  max-width: 480px;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+  animation: modalFadeIn 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+  text-align: right;
+}
+@keyframes modalFadeIn {
+  from { opacity: 0; transform: translateY(-20px) scale(0.95); }
+  to { opacity: 1; transform: translateY(0) scale(1); }
+}
+body.index-page .modal-title {
+  margin-top: 0;
+  font-size: 1.3rem;
+  color: #f1f5f9;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+body.index-page .modal-input {
+  width: 100%;
+  padding: 12px;
+  border-radius: 10px;
+  border: 1px solid #334155;
+  background: #0f172a;
+  color: #f1f5f9;
+  font-family: inherit;
+  margin: 15px 0;
+  direction: ltr;
+  outline: none;
+  transition: border-color 0.2s;
+}
+body.index-page .modal-input:focus {
+  border-color: var(--accent);
+}
+body.index-page .modal-actions {
+  display: flex;
+  gap: 10px;
+  justify-content: flex-end;
+  margin-top: 20px;
+}
+body.index-page .btn-primary {
+  background: var(--brand);
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: bold;
+  font-family: inherit;
+}
+body.index-page .btn-secondary {
+  background: transparent;
+  color: var(--muted);
+  border: 1px solid var(--border);
+  padding: 10px 20px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-family: inherit;
+}
+body.index-page .status-box {
+  margin-top: 15px;
+  padding: 15px;
+  border-radius: 12px;
+  background: rgba(99, 102, 241, 0.1);
+  border: 1px dashed var(--brand);
+  display: none;
+  align-items: center;
+  gap: 12px;
+  animation: modalFadeIn 0.3s ease;
+}
+body.index-page .spinner {
+  width: 20px;
+  height: 20px;
+  border: 3px solid rgba(255, 255, 255, 0.1);
+  border-top-color: var(--accent);
+  border-radius: 50%;
+  animation: spin 1s infinite linear;
+  flex-shrink: 0;
+}
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+@media (max-width: 768px) {
+  body.index-page .top-grid {
+    grid-template-columns: 1fr !important;
+  }
 }
 CSS;
 }
@@ -1014,28 +1202,38 @@ HTML;
 function render_index_page(array $stats, string $buildDisplay, string $buildIso): string {
   $buildIsoAttr = htmlspecialchars($buildIso, ENT_QUOTES | ENT_SUBSTITUTE, 'UTF-8');
   $buildDisplayHtml = htmlspecialchars($buildDisplay, ENT_QUOTES | ENT_SUBSTITUTE, 'UTF-8');
-  $item = function(string $k, string $label) use ($stats): string {
-    if (!isset($stats[$k])) return '';
+  
+  $gridItems = '';
+  $labelMap = [
+    'products'   => '📦 لیست محصولات',
+    'brands'     => '🏷 لیست برندها',
+    'categories' => '📂 دسته‌بندی‌ها',
+    'attributes' => '⚙️ ویژگی‌های محصول',
+    'tags'       => '🔖 تگ‌های محصول',
+  ];
+  
+  foreach ($labelMap as $k => $label) {
+    if (!isset($stats[$k])) continue;
     $c = (int)$stats[$k]['count'];
     $display = htmlspecialchars($stats[$k]['updated_at_display'] ?? '', ENT_QUOTES | ENT_SUBSTITUTE, 'UTF-8');
     $isoAttr = htmlspecialchars($stats[$k]['updated_at_iso'] ?? '', ENT_QUOTES | ENT_SUBSTITUTE, 'UTF-8');
-    return "<li>{$label}: <strong>{$c}</strong> (آخرین بروزرسانی: {$display}<span class=\"rel-time\" data-relative-time=\"{$isoAttr}\"></span>)</li>";
-  };
-  $counts = "<ul style=\"margin:0;padding-left:18px;line-height:1.9\">" .
-            $item('brands','برندها') .
-            $item('tags','تگ‌ها') .
-            $item('categories','دسته‌بندی‌ها') .
-            $item('attributes','ویژگی‌ها') .
-            $item('products','محصولات') .
-            "</ul>";
-  $links = '<ul>'
-    . '<li><a href="./brands.html">brands.html</a></li>'
-    . '<li><a href="./tags.html">tags.html</a></li>'
-    . '<li><a href="./categories.html">categories.html</a></li>'
-    . '<li><a href="./attributes.html">attributes.html</a></li>'
-    . '<li><a href="./products.html">products.html</a></li>'
-    . '<li><a href="./' . TAXONOMY_JSON . '">' . TAXONOMY_JSON . '</a> (یک‌جا برای ایجنت‌ها)</li>'
-    . '</ul>';
+    
+    $gridItems .= <<<HTML
+<div class="card-stat">
+  <div>
+    <h4 style="margin:0 0 8px 0;font-size:1.1rem;color:#f1f5f9;display:flex;align-items:center;gap:6px;">{$label}</h4>
+    <div style="font-size:1.8rem;font-weight:bold;color:var(--accent);margin:12px 0 8px 0;">{$c} <span style="font-size:0.9rem;font-weight:normal;color:var(--muted);">ردیف</span></div>
+  </div>
+  <div>
+    <div style="font-size:0.78rem;color:var(--muted);margin-bottom:12px;direction:rtl;" data-relative-time="{$isoAttr}">بروزرسانی: {$display}</div>
+    <div style="display:flex;gap:8px;">
+      <a href="./{$k}.html" style="padding:8px;background:rgba(255,255,255,0.05);border:1px solid var(--border);border-radius:8px;font-size:0.8rem;color:#f1f5f9;flex:1;text-align:center;transition:all 0.2s;" onmouseover="this.style.background='rgba(99,102,241,0.15)'" onmouseout="this.style.background='rgba(255,255,255,0.05)'">نمایش وب</a>
+      <a href="./{$k}.json" style="padding:8px;background:rgba(255,255,255,0.05);border:1px solid var(--border);border-radius:8px;font-size:0.8rem;color:#f1f5f9;flex:1;text-align:center;transition:all 0.2s;" onmouseover="this.style.background='rgba(6,182,212,0.15)'" onmouseout="this.style.background='rgba(255,255,255,0.05)'" download>دانلود JSON</a>
+    </div>
+  </div>
+</div>
+HTML;
+  }
 
   $css = common_css();
   $nav = render_nav('index');
@@ -1054,26 +1252,204 @@ function render_index_page(array $stats, string $buildDisplay, string $buildIso)
 <meta http-equiv="Pragma" content="no-cache" />
 <meta http-equiv="Expires" content="0" />
 {$favicon}
-<title>راهنمای داده و اسنپ‌شات‌ها</title>
+<title>پنل پایش داده و متادیتا</title>
 <style>{$css}</style>
 </head>
-<body>
+<body class="index-page">
 {$nav}
 <div class="container">
-  <div class="card">
-    <div class="header">
-      <h1>راهنمای داده و اسنپ‌شات‌ها</h1>
-      <div class="small">آخرین ساخت: {$buildDisplayHtml}<span class="rel-time" data-relative-time="{$buildIsoAttr}"></span></div>
+  
+  <!-- Title Header -->
+  <div style="margin-bottom: 24px; text-align: right;">
+    <h1 style="font-size: 1.6rem; color: #f1f5f9; margin: 0 0 8px 0;">پنل پایش داده و متادیتا</h1>
+    <div style="font-size: 0.85rem; color: var(--muted);">آخرین ساخت سراسری: {$buildDisplayHtml}<span class="rel-time" data-relative-time="{$buildIsoAttr}"></span></div>
+  </div>
+
+  <!-- Top Operation Panels -->
+  <div class="top-grid" style="display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-bottom:24px;">
+    <!-- Sync Card -->
+    <div class="card" style="padding:20px;display:flex;flex-direction:column;justify-content:space-between;min-height:180px;">
+      <div>
+        <h3 style="margin:0 0 10px 0;font-size:1.2rem;color:#f1f5f9;display:flex;align-items:center;gap:8px;">⚡ همگام‌سازی دستی داده‌ها</h3>
+        <p style="margin:0;font-size:0.85rem;color:var(--muted);line-height:1.6;">اگر داده‌ای را در گوگل شیت تغییر داده‌اید و نمی‌خواهید منتظر اجرای خودکار بعدی بمانید، با دکمه زیر فرآیند بازسازی را در لحظه آغاز کنید.</p>
+      </div>
+      <div style="margin-top:15px;">
+        <button class="btn-sync" onclick="triggerSync()">
+          <span>🔄 به‌روزرسانی در لحظه</span>
+        </button>
+        <div id="sync-status" class="status-box"></div>
+      </div>
     </div>
-    <div class="section">
-      <h3>🔗 دسترسی سریع</h3>
-      {$links}
-      <h3>📊 خلاصه آمار</h3>
-      {$counts}
+
+    <!-- Unified JSON Card -->
+    <div class="card" style="padding:20px;display:flex;flex-direction:column;justify-content:space-between;min-height:180px;position:relative;overflow:hidden;border-color:var(--accent);">
+      <div>
+        <h3 style="margin:0 0 10px 0;font-size:1.2rem;color:#f1f5f9;display:flex;align-items:center;gap:8px;">🔗 فایل جامع و یکپارچه</h3>
+        <p style="margin:0;font-size:0.85rem;color:var(--muted);line-height:1.6;">این فایل شامل تمامی داده‌های ۵ شیت به همراه متادیتای زمانی و راهنمای ساختار است که مرجع اصلی ایجنت‌ها محسوب می‌شود.</p>
+      </div>
+      <div style="margin-top:15px;display:flex;gap:10px;align-items:center;flex-wrap:wrap;">
+        <a href="./taxonomy.json" style="padding:10px 20px;background:linear-gradient(90deg, #6366f1, #06b6d4);color:white;border-radius:10px;font-weight:bold;font-size:0.9rem;box-shadow:0 4px 12px rgba(6,182,212,0.25);">دانلود taxonomy.json</a>
+        <button onclick="copyToClipboard('https://meta.buyruz.com/taxonomy.json')" style="padding:10px 15px;background:rgba(255,255,255,0.05);border:1px solid var(--border);border-radius:10px;color:#f1f5f9;font-weight:bold;font-size:0.9rem;cursor:pointer;transition:all 0.2s;" onmouseover="this.style.background='rgba(255,255,255,0.1)'" onmouseout="this.style.background='rgba(255,255,255,0.05)'">کپی لینک فایل</button>
+      </div>
     </div>
   </div>
-  {$guide}
+
+  <!-- Dashboard Grid -->
+  <h3 style="color:#f1f5f9;margin:32px 0 16px 0;">📊 وضعیت اسنپ‌شات‌ها</h3>
+  <div class="dashboard-grid">
+    {$gridItems}
+  </div>
+
+  <!-- Guides -->
+  <div style="margin-top: 40px;">
+    {$guide}
+  </div>
 </div>
+
+<!-- Token Modal -->
+<div id="token-modal" class="modal">
+  <div class="modal-content">
+    <h3 class="modal-title">🔐 اتصال به گیت‌هاب</h3>
+    <p style="color:var(--muted);font-size:0.85rem;line-height:1.6;margin:10px 0;">جهت احراز هویت برای ارسال دستور به گیت‌هاب، لطفاً توکن شخصی خود (GitHub PAT) را وارد کنید. این توکن فقط در مرورگر شما ذخیره خواهد شد.</p>
+    <div style="font-size:0.8rem;background:#0f172a;padding:12px;border-radius:8px;border:1px solid var(--border);margin-bottom:15px;color:var(--muted);line-height:1.5;">
+      💡 توکن شما باید دسترسی‌های <strong>Actions: write</strong> و <strong>Contents: write</strong> برای این مخزن داشته باشد.
+    </div>
+    <label style="font-size:0.85rem;color:#f1f5f9;">توکن گیت‌هاب (GitHub PAT):</label>
+    <input type="password" id="pat-token" class="modal-input" placeholder="ghp_XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX">
+    <div class="modal-actions">
+      <button class="btn-secondary" onclick="closeTokenModal()">انصراف</button>
+      <button class="btn-primary" onclick="saveTokenAndSync()">ذخیره و شروع</button>
+    </div>
+  </div>
+</div>
+
+<script>
+const OWNER = 'moh3np';
+const REPO = 'buyruz-meta';
+const WORKFLOW_ID = 'cron-refresh.yml';
+let pollInterval;
+
+function copyToClipboard(text) {
+  navigator.clipboard.writeText(text).then(() => {
+    alert('لینک فایل جامع کپی شد.');
+  }).catch(err => {
+    console.error('Failed to copy: ', err);
+  });
+}
+
+function showTokenModal() {
+  document.getElementById('token-modal').style.display = 'flex';
+}
+
+function closeTokenModal() {
+  document.getElementById('token-modal').style.display = 'none';
+}
+
+function saveTokenAndSync() {
+  const token = document.getElementById('pat-token').value.trim();
+  if (!token) {
+    alert('لطفاً توکن را وارد کنید.');
+    return;
+  }
+  localStorage.setItem('gh_pat', token);
+  closeTokenModal();
+  triggerSync();
+}
+
+async function triggerSync() {
+  let token = localStorage.getItem('gh_pat');
+  if (!token) {
+    showTokenModal();
+    return;
+  }
+  
+  setSyncStatus('initiating', 'در حال ارسال درخواست به گیت‌هاب...');
+  
+  try {
+    const res = await fetch(`https://api.github.com/repos/\${OWNER}/\${REPO}/actions/workflows/\${WORKFLOW_ID}/dispatches`, {
+      method: 'POST',
+      headers: {
+        'Authorization': `Bearer \${token}`,
+        'Accept': 'application/vnd.github+json',
+        'X-GitHub-Api-Version': '2022-11-28',
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({ ref: 'main' })
+    });
+    
+    if (res.status === 204) {
+      setSyncStatus('queued', 'درخواست ثبت شد. در حال راه‌اندازی سرور پردازش...');
+      startPolling(token);
+    } else {
+      const err = await res.json().catch(() => ({}));
+      throw new Error(err.message || 'خطا در احراز هویت. احتمالاً توکن منقضی یا اشتباه است.');
+    }
+  } catch (error) {
+    localStorage.removeItem('gh_pat');
+    setSyncStatus('error', error.message);
+  }
+}
+
+function setSyncStatus(type, message) {
+  const box = document.getElementById('sync-status');
+  box.style.display = 'flex';
+  
+  let content = '';
+  if (type === 'initiating' || type === 'queued' || type === 'running') {
+    content = `<div class="spinner"></div><span style="font-size:0.88rem;color:#f1f5f9;">\${message}</span>`;
+    box.style.borderColor = 'var(--brand)';
+    box.style.background = 'rgba(99, 102, 241, 0.1)';
+  } else if (type === 'success') {
+    content = `<span style="font-size:1.2rem;">✅</span><span style="font-size:0.88rem;color:#10b981;font-weight:bold;">\${message}</span>`;
+    box.style.borderColor = '#10b981';
+    box.style.background = 'rgba(16, 185, 129, 0.1)';
+  } else if (type === 'error') {
+    content = `<span style="font-size:1.2rem;">❌</span><span style="font-size:0.88rem;color:#ef4444;font-weight:bold;">\${message}</span>`;
+    box.style.borderColor = '#ef4444';
+    box.style.background = 'rgba(239, 68, 68, 0.1)';
+  }
+  
+  box.innerHTML = content;
+}
+
+function startPolling(token) {
+  if (pollInterval) clearInterval(pollInterval);
+  
+  pollInterval = setInterval(async () => {
+    try {
+      const res = await fetch(`https://api.github.com/repos/\${OWNER}/\${REPO}/actions/runs?workflow_id=\${WORKFLOW_ID}&limit=5`, {
+        headers: {
+          'Authorization': `Bearer \${token}`,
+          'Accept': 'application/vnd.github+json',
+          'X-GitHub-Api-Version': '2022-11-28'
+        }
+      });
+      
+      if (!res.ok) return;
+      const data = await res.json();
+      const runs = data.workflow_runs || [];
+      const run = runs[0];
+      if (!run) return;
+      
+      if (run.status === 'queued') {
+        setSyncStatus('running', 'کران‌جاب در صف انتظار گیت‌هاب قرار گرفت...');
+      } else if (run.status === 'in_progress') {
+        setSyncStatus('running', 'در حال پردازش: داده‌ها از گوگل شیت بارگذاری و فایل‌ها بازنویسی می‌شوند...');
+      } else if (run.status === 'completed') {
+        clearInterval(pollInterval);
+        if (run.conclusion === 'success') {
+          setSyncStatus('success', 'به‌روزرسانی با موفقیت انجام شد! صفحه تا ۳ ثانیه دیگر رفرش می‌شود...');
+          setTimeout(() => window.location.reload(), 3000);
+        } else {
+          setSyncStatus('error', 'خطایی در اجرای کران‌جاب گیت‌هاب رخ داد. لطفاً لاگ‌های گیت‌هاب را بررسی کنید.');
+        }
+      }
+    } catch (e) {
+      console.error(e);
+    }
+  }, 4000);
+}
+</script>
 {$script}
 </body>
 </html>
