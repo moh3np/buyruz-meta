@@ -24,7 +24,7 @@ const ENDPOINTS = [
   'new_products' => 880069675,
 ];
 const TAXONOMY_JSON = 'taxonomy.json';
-const VERSION = '1.1.5';
+const VERSION = '1.1.6';
 
 // خروجی‌ها در همین دایرکتوری ساخته می‌شوند
 const OUTPUT_DIR = __DIR__;
@@ -1621,7 +1621,7 @@ HTML;
         <p style="margin:0;font-size:0.85rem;color:var(--muted);line-height:1.6;">این فایل شامل تمامی داده‌های ۵ شیت به همراه متادیتای زمانی و راهنمای ساختار است که مرجع اصلی ایجنت‌ها محسوب می‌شود.</p>
       </div>
       <div style="margin-top:15px;display:flex;gap:10px;align-items:center;flex-wrap:wrap;">
-        <a href="./taxonomy.json" style="padding:10px 20px;background:linear-gradient(90deg, #6366f1, #06b6d4);color:white;border-radius:10px;font-weight:bold;font-size:0.9rem;box-shadow:0 4px 12px rgba(6,182,212,0.25);">دانلود taxonomy.json</a>
+        <a href="./taxonomy.json" style="padding:10px 20px;background:linear-gradient(90deg, #6366f1, #06b6d4);color:white;border-radius:10px;font-weight:bold;font-size:0.9rem;box-shadow:0 4px 12px rgba(6,182,212,0.25);" download>دانلود taxonomy.json</a>
         <button onclick="copyToClipboard('https://meta.buyruz.com/taxonomy.json')" class="btn-secondary-outline" style="padding:10px 15px;font-weight:bold;font-size:0.9rem;flex:initial;">کپی لینک فایل</button>
       </div>
     </div>
