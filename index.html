@@ -100,17 +100,17 @@ th:nth-child(3), td:nth-child(3){
   th:nth-child(3), td:nth-child(3){min-width:200px}
 }
 
-/* Custom styling override for products and new_products tables */
+/* Custom styling override for products and online_products tables */
 .tblwrap-products table,
-.tblwrap-new_products table {
+.tblwrap-online_products table {
   min-width: 1600px;
 }
 .tblwrap-products th, .tblwrap-products td,
-.tblwrap-new_products th, .tblwrap-new_products td {
+.tblwrap-online_products th, .tblwrap-online_products td {
   white-space: normal;
 }
 .tblwrap-products th:nth-child(1), .tblwrap-products td:nth-child(1),
-.tblwrap-new_products th:nth-child(1), .tblwrap-new_products td:nth-child(1) {
+.tblwrap-online_products th:nth-child(1), .tblwrap-online_products td:nth-child(1) {
   min-width: 100px;
   text-align: center;
   direction: ltr;
@@ -118,15 +118,15 @@ th:nth-child(3), td:nth-child(3){
   white-space: nowrap;
 }
 .tblwrap-products th:nth-child(2), .tblwrap-products td:nth-child(2),
-.tblwrap-new_products th:nth-child(2), .tblwrap-new_products td:nth-child(2) {
+.tblwrap-online_products th:nth-child(2), .tblwrap-online_products td:nth-child(2) {
   min-width: 280px;
 }
 .tblwrap-products th:nth-child(3), .tblwrap-products td:nth-child(3),
-.tblwrap-new_products th:nth-child(3), .tblwrap-new_products td:nth-child(3) {
+.tblwrap-online_products th:nth-child(3), .tblwrap-online_products td:nth-child(3) {
   min-width: 180px;
 }
 .tblwrap-products th:nth-child(4), .tblwrap-products td:nth-child(4),
-.tblwrap-new_products th:nth-child(4), .tblwrap-new_products td:nth-child(4) {
+.tblwrap-online_products th:nth-child(4), .tblwrap-online_products td:nth-child(4) {
   min-width: 100px;
   text-align: center;
   direction: ltr;
@@ -134,19 +134,19 @@ th:nth-child(3), td:nth-child(3){
   white-space: nowrap;
 }
 .tblwrap-products th:nth-child(5), .tblwrap-products td:nth-child(5),
-.tblwrap-new_products th:nth-child(5), .tblwrap-new_products td:nth-child(5) {
+.tblwrap-online_products th:nth-child(5), .tblwrap-online_products td:nth-child(5) {
   min-width: 120px;
 }
 .tblwrap-products th:nth-child(6), .tblwrap-products td:nth-child(6),
-.tblwrap-new_products th:nth-child(6), .tblwrap-new_products td:nth-child(6) {
+.tblwrap-online_products th:nth-child(6), .tblwrap-online_products td:nth-child(6) {
   min-width: 250px;
 }
 .tblwrap-products th:nth-child(7), .tblwrap-products td:nth-child(7),
-.tblwrap-new_products th:nth-child(7), .tblwrap-new_products td:nth-child(7) {
+.tblwrap-online_products th:nth-child(7), .tblwrap-online_products td:nth-child(7) {
   min-width: 280px;
 }
 .tblwrap-products th:nth-child(8), .tblwrap-products td:nth-child(8),
-.tblwrap-new_products th:nth-child(8), .tblwrap-new_products td:nth-child(8) {
+.tblwrap-online_products th:nth-child(8), .tblwrap-online_products td:nth-child(8) {
   min-width: 320px;
 }
 
@@ -509,21 +509,21 @@ html.dark .toast {
   <a href="./tags.html" >تگ‌ها</a>
   <a href="./categories.html" >دسته‌بندی‌ها</a>
   <a href="./attributes.html" >ویژگی‌ها</a>
+  <a href="./online_products.html" >محصولات آنلاین</a>
   <a href="./products.html" >محصولات</a>
-  <a href="./new_products.html" >محصولات جدید</a>
   <div class="theme-switch" role="group" aria-label="Theme selector">
     <button class="theme-btn" data-theme="light" title="روشن">☀️</button>
     <button class="theme-btn" data-theme="dark" title="تاریک">🌙</button>
     <button class="theme-btn" data-theme="system" title="سیستم">🖥️</button>
   </div>
-  <span class="version-badge">v1.1.6</span>
+  <span class="version-badge">v1.1.7</span>
 </nav>
 <div class="container">
   
   <!-- Title Header -->
   <div style="margin-bottom: 24px; text-align: right;">
     <h1 style="font-size: 1.6rem; color: var(--text); margin: 0 0 8px 0;">پنل پایش داده و متادیتا</h1>
-    <div style="font-size: 0.85rem; color: var(--muted);">آخرین ساخت سراسری: 2026-06-08 16:26:52 (+03:30)<span class="rel-time" data-relative-time="2026-06-08T16:26:52+03:30"></span></div>
+    <div style="font-size: 0.85rem; color: var(--muted);">آخرین ساخت سراسری: 2026-06-08 16:32:16 (+03:30)<span class="rel-time" data-relative-time="2026-06-08T16:32:16+03:30"></span></div>
   </div>
 
   <!-- Top Operation Panels -->
@@ -560,14 +560,14 @@ html.dark .toast {
   <div class="dashboard-grid">
     <div class="card-stat">
   <div>
-    <h4 style="margin:0 0 8px 0;font-size:1.1rem;color:var(--text);display:flex;align-items:center;gap:6px;">📦 لیست محصولات</h4>
+    <h4 style="margin:0 0 8px 0;font-size:1.1rem;color:var(--text);display:flex;align-items:center;gap:6px;">📦 محصولات آنلاین</h4>
     <div style="font-size:1.8rem;font-weight:bold;color:var(--accent);margin:12px 0 8px 0;">9 <span style="font-size:0.9rem;font-weight:normal;color:var(--muted);">ردیف</span></div>
   </div>
   <div>
-    <div style="font-size:0.78rem;color:var(--muted);margin-bottom:12px;direction:rtl;" data-relative-time="2026-06-08T16:26:49+03:30">بروزرسانی: 2026-06-08 16:26:52 (+03:30)</div>
+    <div style="font-size:0.78rem;color:var(--muted);margin-bottom:12px;direction:rtl;" data-relative-time="2026-06-08T16:32:08+03:30">بروزرسانی: 2026-06-08 16:32:14 (+03:30)</div>
     <div style="display:flex;gap:8px;">
-      <a href="./products.html" class="btn-secondary-outline">نمایش وب</a>
-      <a href="./products.json" class="btn-secondary-outline" download>دانلود JSON</a>
+      <a href="./online_products.html" class="btn-secondary-outline">نمایش وب</a>
+      <a href="./online_products.json" class="btn-secondary-outline" download>دانلود JSON</a>
     </div>
   </div>
 </div><div class="card-stat">
@@ -576,7 +576,7 @@ html.dark .toast {
     <div style="font-size:1.8rem;font-weight:bold;color:var(--accent);margin:12px 0 8px 0;">43 <span style="font-size:0.9rem;font-weight:normal;color:var(--muted);">ردیف</span></div>
   </div>
   <div>
-    <div style="font-size:0.78rem;color:var(--muted);margin-bottom:12px;direction:rtl;" data-relative-time="2026-06-08T16:26:49+03:30">بروزرسانی: 2026-06-08 16:26:50 (+03:30)</div>
+    <div style="font-size:0.78rem;color:var(--muted);margin-bottom:12px;direction:rtl;" data-relative-time="2026-06-08T16:32:08+03:30">بروزرسانی: 2026-06-08 16:32:09 (+03:30)</div>
     <div style="display:flex;gap:8px;">
       <a href="./brands.html" class="btn-secondary-outline">نمایش وب</a>
       <a href="./brands.json" class="btn-secondary-outline" download>دانلود JSON</a>
@@ -588,7 +588,7 @@ html.dark .toast {
     <div style="font-size:1.8rem;font-weight:bold;color:var(--accent);margin:12px 0 8px 0;">14 <span style="font-size:0.9rem;font-weight:normal;color:var(--muted);">ردیف</span></div>
   </div>
   <div>
-    <div style="font-size:0.78rem;color:var(--muted);margin-bottom:12px;direction:rtl;" data-relative-time="2026-06-08T16:26:49+03:30">بروزرسانی: 2026-06-08 16:26:51 (+03:30)</div>
+    <div style="font-size:0.78rem;color:var(--muted);margin-bottom:12px;direction:rtl;" data-relative-time="2026-06-08T16:32:08+03:30">بروزرسانی: 2026-06-08 16:32:12 (+03:30)</div>
     <div style="display:flex;gap:8px;">
       <a href="./categories.html" class="btn-secondary-outline">نمایش وب</a>
       <a href="./categories.json" class="btn-secondary-outline" download>دانلود JSON</a>
@@ -600,7 +600,7 @@ html.dark .toast {
     <div style="font-size:1.8rem;font-weight:bold;color:var(--accent);margin:12px 0 8px 0;">105 <span style="font-size:0.9rem;font-weight:normal;color:var(--muted);">ردیف</span></div>
   </div>
   <div>
-    <div style="font-size:0.78rem;color:var(--muted);margin-bottom:12px;direction:rtl;" data-relative-time="2026-06-08T16:26:49+03:30">بروزرسانی: 2026-06-08 16:26:51 (+03:30)</div>
+    <div style="font-size:0.78rem;color:var(--muted);margin-bottom:12px;direction:rtl;" data-relative-time="2026-06-08T16:32:08+03:30">بروزرسانی: 2026-06-08 16:32:13 (+03:30)</div>
     <div style="display:flex;gap:8px;">
       <a href="./attributes.html" class="btn-secondary-outline">نمایش وب</a>
       <a href="./attributes.json" class="btn-secondary-outline" download>دانلود JSON</a>
@@ -612,7 +612,7 @@ html.dark .toast {
     <div style="font-size:1.8rem;font-weight:bold;color:var(--accent);margin:12px 0 8px 0;">6 <span style="font-size:0.9rem;font-weight:normal;color:var(--muted);">ردیف</span></div>
   </div>
   <div>
-    <div style="font-size:0.78rem;color:var(--muted);margin-bottom:12px;direction:rtl;" data-relative-time="2026-06-08T16:26:49+03:30">بروزرسانی: 2026-06-08 16:26:50 (+03:30)</div>
+    <div style="font-size:0.78rem;color:var(--muted);margin-bottom:12px;direction:rtl;" data-relative-time="2026-06-08T16:32:08+03:30">بروزرسانی: 2026-06-08 16:32:11 (+03:30)</div>
     <div style="display:flex;gap:8px;">
       <a href="./tags.html" class="btn-secondary-outline">نمایش وب</a>
       <a href="./tags.json" class="btn-secondary-outline" download>دانلود JSON</a>
@@ -620,14 +620,14 @@ html.dark .toast {
   </div>
 </div><div class="card-stat">
   <div>
-    <h4 style="margin:0 0 8px 0;font-size:1.1rem;color:var(--text);display:flex;align-items:center;gap:6px;">✨ محصولات جدید</h4>
-    <div style="font-size:1.8rem;font-weight:bold;color:var(--accent);margin:12px 0 8px 0;">0 <span style="font-size:0.9rem;font-weight:normal;color:var(--muted);">ردیف</span></div>
+    <h4 style="margin:0 0 8px 0;font-size:1.1rem;color:var(--text);display:flex;align-items:center;gap:6px;">✨ محصولات</h4>
+    <div style="font-size:1.8rem;font-weight:bold;color:var(--accent);margin:12px 0 8px 0;">502 <span style="font-size:0.9rem;font-weight:normal;color:var(--muted);">ردیف</span></div>
   </div>
   <div>
-    <div style="font-size:0.78rem;color:var(--muted);margin-bottom:12px;direction:rtl;" data-relative-time="2026-06-08T16:26:49+03:30">بروزرسانی: 2026-06-08 16:26:52 (+03:30)</div>
+    <div style="font-size:0.78rem;color:var(--muted);margin-bottom:12px;direction:rtl;" data-relative-time="2026-06-08T16:32:08+03:30">بروزرسانی: 2026-06-08 16:32:16 (+03:30)</div>
     <div style="display:flex;gap:8px;">
-      <a href="./new_products.html" class="btn-secondary-outline">نمایش وب</a>
-      <a href="./new_products.json" class="btn-secondary-outline" download>دانلود JSON</a>
+      <a href="./products.html" class="btn-secondary-outline">نمایش وب</a>
+      <a href="./products.json" class="btn-secondary-outline" download>دانلود JSON</a>
     </div>
   </div>
 </div>
