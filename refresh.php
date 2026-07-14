@@ -16,15 +16,16 @@ declare(strict_types=1);
 //////////////////////
 const SPREADSHEET_ID = '1LsM7opLNqYuirVM20rEBZwOjaPDNlaxC1bZpZtDbkck';
 const ENDPOINTS = [
-  'brands'       => 120861559,
-  'tags'         => 1888622902,
-  'categories'   => 449911808,
+  'brands'          => 120861559,
+  'tags'            => 1888622902,
+  'categories'      => 449911808,
   'attributes'      => 1260611769,
+  'meta_attributes' => 2063239686,
   'online_products' => 26471258,
   'products'        => 880069675,
 ];
 const TAXONOMY_JSON = 'taxonomy.json';
-const VERSION = '1.1.7';
+const VERSION = '1.2.0';
 
 // خروجی‌ها در همین دایرکتوری ساخته می‌شوند
 const OUTPUT_DIR = __DIR__;
@@ -82,7 +83,8 @@ foreach ($targets as $name => $gid) {
     'brands'          => 'لیست نام برندها',
     'tags'            => 'لیست تگ‌ها',
     'categories'      => 'لیست دسته‌بندی‌ها',
-    'attributes'      => 'لیست ویژگی‌ها',
+    'attributes'      => 'ویژگی‌های ووکامرس',
+    'meta_attributes' => 'ویژگی‌های متا',
     'online_products' => 'لیست محصولات آنلاین',
     'products'        => 'لیست محصولات',
   ];
@@ -376,6 +378,11 @@ function build_structured_dataset(string $name, array $rows, string $timestampIs
         'count' => count($items),
         'items' => $items,
       ]);
+    case 'meta_attributes':
+      return array_merge($base, [
+        'count' => count($rows),
+        'items' => $rows,
+      ]);
     default:
       return null;
   }
@@ -392,7 +399,7 @@ function build_unified_snapshot(array $datasets, string $timestampIso, string $t
     'timezone_offset_seconds'        => tehran_offset_seconds(),
     'stale_after_seconds'            => JSON_STALE_AFTER_SECONDS,
     'stale_after_minutes'            => (int) ceil(JSON_STALE_AFTER_SECONDS / 60),
-    'note'                           => 'یک لینک واحد برای ایجنت‌ها (brands/tags/categories/attributes).',
+    'note'                           => 'یک لینک واحد برای ایجنت‌ها (brands/tags/categories/attributes/meta_attributes).',
   ];
 
   $summary = [];
@@ -404,10 +411,11 @@ function build_unified_snapshot(array $datasets, string $timestampIso, string $t
     'meta' => $meta,
     'usage_notes' => unified_usage_notes(),
     'source_files' => [
-      'brands'     => 'brands.json',
-      'tags'       => 'tags.json',
-      'categories' => 'categories.json',
-      'attributes' => 'attributes.json',
+      'brands'          => 'brands.json',
+      'tags'            => 'tags.json',
+      'categories'      => 'categories.json',
+      'attributes'      => 'attributes.json',
+      'meta_attributes' => 'meta_attributes.json',
     ],
     'summary_counts' => $summary,
     'datasets' => $datasets,
@@ -430,7 +438,7 @@ function build_unified_snapshot_from_payloads(array $payloads, string $timestamp
     'timezone_offset_seconds'        => tehran_offset_seconds(),
     'stale_after_seconds'            => JSON_STALE_AFTER_SECONDS,
     'stale_after_minutes'            => (int) ceil(JSON_STALE_AFTER_SECONDS / 60),
-    'note'                           => 'یک لینک واحد برای ایجنت‌ها (brands/tags/categories/attributes).',
+    'note'                           => 'یک لینک واحد برای ایجنت‌ها (brands/tags/categories/attributes/meta_attributes).',
   ];
 
   $summary = [];
@@ -452,6 +460,7 @@ function build_unified_snapshot_from_payloads(array $payloads, string $timestamp
       'tags'            => 'tags.json',
       'categories'      => 'categories.json',
       'attributes'      => 'attributes.json',
+      'meta_attributes' => 'meta_attributes.json',
       'online_products' => 'online_products.json',
     ],
     'summary_counts' => $summary,
@@ -1133,6 +1142,31 @@ html.dark .theme-btn.active {
   min-width: 220px;
 }
 
+/* Meta Attributes Page Layout Overrides */
+.tblwrap-meta_attributes table {
+  min-width: 1200px;
+}
+.tblwrap-meta_attributes th, .tblwrap-meta_attributes td {
+  white-space: normal;
+}
+.tblwrap-meta_attributes th:nth-child(1), .tblwrap-meta_attributes td:nth-child(1) {
+  min-width: 140px;
+  direction: ltr;
+  text-align: left;
+  white-space: nowrap;
+}
+.tblwrap-meta_attributes th:nth-child(2), .tblwrap-meta_attributes td:nth-child(2) {
+  min-width: 180px;
+  white-space: nowrap;
+}
+.tblwrap-meta_attributes th:nth-child(3), .tblwrap-meta_attributes td:nth-child(3) {
+  min-width: 120px;
+  white-space: nowrap;
+}
+.tblwrap-meta_attributes th:nth-child(6), .tblwrap-meta_attributes td:nth-child(6) {
+  min-width: 300px;
+}
+
 /* Version Badge */
 .version-badge {
   font-size: 0.72rem;
@@ -1209,7 +1243,8 @@ function render_nav(string $active): string {
   <a href="./brands.html" {$is('brands')}>برندها</a>
   <a href="./tags.html" {$is('tags')}>تگ‌ها</a>
   <a href="./categories.html" {$is('categories')}>دسته‌بندی‌ها</a>
-  <a href="./attributes.html" {$is('attributes')}>ویژگی‌ها</a>
+  <a href="./attributes.html" {$is('attributes')}>ویژگی‌های ووکامرس</a>
+  <a href="./meta_attributes.html" {$is('meta_attributes')}>ویژگی‌های متا</a>
   <a href="./online_products.html" {$is('online_products')}>محصولات آنلاین</a>
   <a href="./products.html" {$is('products')}>محصولات</a>
   <div class="theme-switch" role="group" aria-label="Theme selector">
@@ -1371,15 +1406,22 @@ function guidelines_full_html(): string {
   </ul>
   <hr/>
 
-  <h3>⚙️ ویژگی‌ها و مشخصه‌ها</h3>
+  <h3>⚙️ ویژگی‌های ووکامرس</h3>
   <ul>
-    <li>برای توصیف دقیق محصول (رنگ، جنس، گروه سنی، تعداد قطعات…)</li>
+    <li>ویژگی‌های کلی ووکامرس (مانند انتخاب رنگ، جنس، گروه سنی) با مقادیر از پیش تعریف شده (terms) که برای فیلتر کردن و انتخاب متغیرهای محصول در سایت استفاده می‌شوند.</li>
     <li>اگر ویژگی موجود است، <strong>همان را استفاده کن</strong>.</li>
     <li>در صورت نیاز می‌توانی ویژگی/مقدار جدید بسازی؛ اما از <strong>هم‌معنیِ تکراری</strong> بپرهیز.</li>
   </ul>
   <blockquote class="note">مثال: اگر «تعداد قطعات» موجود است، ویژگی تازه‌ای به نام «تعداد تکه‌ها» نساز.</blockquote>
-
   <hr/>
+
+  <h3>✨ ویژگی‌های متا (Specs)</h3>
+  <ul>
+    <li>فیلد‌های متادیتای اختصاصی محصولات بایروز (مانند رده سنی، تعداد بازیکنان، زمان بازی، سختی بازی) با ساختار داده مشخص (range, array, boolean, integer, decimal) که مستقیماً در متادیتای محصول ذخیره شده و در جدول مشخصات فنی نمایش داده می‌شوند.</li>
+    <li>این فیلدها نوع داده مشخص دارند و تغییر کلید یا فرمت آن‌ها مجاز نیست.</li>
+  </ul>
+  <hr/>
+
   <h3>💡 یادآوری کلی</h3>
   <ul>
     <li>از تکرار با واژه‌های هم‌معنی یا املای متفاوت خودداری کن.</li>
@@ -1416,12 +1458,19 @@ function guidelines_section_html(string $name): string {
       </ul>
     HTML,
     'attributes' => <<<HTML
-      <h3>⚙️ راهنمای ویژگی‌ها و مشخصه‌ها</h3>
+      <h3>⚙️ راهنمای ویژگی‌های ووکامرس</h3>
       <ul>
         <li>از ویژگی‌های موجود برای توصیف دقیق استفاده کن.</li>
         <li>در صورت نیاز می‌توانی ویژگی/مقدار جدید بسازی؛ اما از ایجاد هم‌معنیِ تکراری بپرهیز.</li>
       </ul>
       <blockquote class="note">مثال: «تعداد قطعات» ≠ «تعداد تکه‌ها»</blockquote>
+    HTML,
+    'meta_attributes' => <<<HTML
+      <h3>✨ راهنمای ویژگی‌های متا (Specs)</h3>
+      <ul>
+        <li>فیلد‌های متادیتای اختصاصی محصولات که برای مشخصات فنی استفاده می‌شوند.</li>
+        <li>این فیلدها نوع داده مشخص دارند (مانند range, boolean, integer) و تغییر کلید یا فرمت آن‌ها مجاز نیست.</li>
+      </ul>
     HTML,
     'online_products' => <<<HTML
       <h3>📦 راهنمای محصولات آنلاین</h3>
@@ -1532,7 +1581,8 @@ function render_index_page(array $stats, string $buildDisplay, string $buildIso)
     'online_products' => '📦 محصولات آنلاین',
     'brands'          => '🏷 لیست برندها',
     'categories'      => '📂 دسته‌بندی‌ها',
-    'attributes'      => '⚙️ ویژگی‌های محصول',
+    'attributes'      => '⚙️ ویژگی‌های ووکامرس',
+    'meta_attributes' => '✨ ویژگی‌های متا',
     'tags'            => '🔖 تگ‌های محصول',
     'products'        => '✨ محصولات',
   ];
